@@ -22,25 +22,11 @@ Route::get('/terapeutas', function (){
 
 Route::middleware('auth')->group(function(){
 
-    Route::get('/usuarios', function (){
-        $users = App\User::all();
-        return view('users.list', ['users' => $users]);
-    });
-
-    Route::post('/usuarios', function (){
-       $data = request()->all();
-
-      /* $user = new App\User;
-       $user->name = $data['name'];
-       $user->email = $data['email'];
-       $user->password = $data['password'];
-       $user->save();
-      // dd($data);*/
-
-      App\User::create(request()->all());
-
-      return redirect('/usuarios');
-    });
+    Route::get('/usuarios','UsersController@index');
+    Route::post('/usuarios','UsersController@create');
+    Route::get('/usuarios/{id}/delete','UsersController@delete');
+    Route::get('/usuarios/{id}/edit','UsersController@editForm');
+    Route::post('/usuarios/{id}','UsersController@edit');
 
     Route::any('/hello', function (){
         if(isset($_POST['teste'])){

@@ -4,7 +4,10 @@
 <div class="container">
     <ul>
     @foreach($users as $user)
-      <li>{{ $user->name}}</li>
+      <li>{{ $user->name}} 
+      <a href="/usuarios/{{ $user->id}}/edit">Edit</a> | 
+      <a href="/usuarios/{{ $user->id}}/delete">Remover</a>
+      </li> 
     @endforeach
     </ul>
 
