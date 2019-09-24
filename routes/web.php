@@ -15,10 +15,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/terapeutas', function (){
-    $terapeutas = App\Terapeuta::all();
-    return  $terapeutas;
-});
+Route::get('/terapeutas','TerapeutasController@list');
 
 Route::middleware('auth')->group(function(){
 
@@ -27,15 +24,14 @@ Route::middleware('auth')->group(function(){
     Route::get('/usuarios/{id}/delete','UsersController@delete');
     Route::get('/usuarios/{id}/edit','UsersController@editForm');
     Route::post('/usuarios/{id}','UsersController@edit');
-
+    
     Route::any('/hello', function (){
         if(isset($_POST['teste'])){
            return view('hello', ['name' => 'Adriano', 'teste'=> $_POST['teste']]);
         }else{
             return view('hello', ['name' => 'Adriano']);
         }
-
-    });  
+    });
 });
 
 Auth::routes();
