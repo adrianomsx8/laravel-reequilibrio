@@ -1,5 +1,5 @@
-Sistema para cadastro de terapeutas
+<strong>Sistema para cadastro de terapeutas</strong> <br/>
 
-Laravel 7.1
-Banco: PostgreSQl
-php 7.4
+PHP 7.4
+<strong>Framework: </strong> Laravel 7.1 <br/>
+<strong>Banco:</strong> PostgreSQl <br/>
