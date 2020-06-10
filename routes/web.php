@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/usuarios/{id}/delete','UsersController@delete');
     Route::get('/usuarios/{id}/edit','UsersController@editForm');
     Route::post('/usuarios/{id}','UsersController@edit');
+
+    //Route::resource('/usuarios', 'UsersController');
     
     Route::any('/hello', function (){
         if(isset($_POST['teste'])){
