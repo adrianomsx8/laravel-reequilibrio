@@ -13,4 +13,11 @@ php artisan db:seed (executar as seeds)<br>
 php artisan make:migration create_table_products<br>
 php artisan migrate:rollback (desfaz a migration)<br>
 php artisan make:controller UserController (cria novo controller)<br>
+php artisan make:request Terapeuta <br>
+
+<br>
+<hr>
+<strong>Utilização da flash message:</strong> https://github.com/laracasts/flash
+
+
 

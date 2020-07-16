@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function(){
     Route::post('/usuarios/{id}','UsersController@edit');
 
     //Route::resource('/usuarios', 'UsersController');
+
+    Route::get('/terapeuta','TerapeutasController@index');
+    Route::post('/terapeuta/create','TerapeutasController@create');
     
     Route::any('/hello', function (){
         if(isset($_POST['teste'])){
