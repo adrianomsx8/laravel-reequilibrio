@@ -29,6 +29,13 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/terapeuta','TerapeutasController@index');
     Route::post('/terapeuta/create','TerapeutasController@create');
+
+    Route::get('terapias/', 'TerapiasController@list');
+    Route::get('terapias/index', 'TerapiasController@index');
+    Route::post('terapias/create', 'TerapiasController@create');
+    Route::get('/terapias/{id}/editForm','TerapiasController@editForm');
+    Route::post('/terapias/{id}/edit','TerapiasController@edit');
+    Route::get('/terapias/{id}/delete','TerapiasController@delete');
     
     Route::any('/hello', function (){
         if(isset($_POST['teste'])){

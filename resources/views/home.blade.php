@@ -19,6 +19,8 @@
                      Bem vindo
                     <br> <br>
                             <a href="{{ url('/terapeuta') }}">Registrar Terapeuta</a> | 
+
+                            <a href="{{ url('/terapias') }}">Listar Especialidades</a>
                 </div>
             </div>
         </div>
