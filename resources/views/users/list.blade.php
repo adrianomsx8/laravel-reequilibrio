@@ -2,22 +2,27 @@
 
 @section('content')
 <div class="container">
-    <ul>
+<!-- <a href="/usuariuos/index" class="btn btn-success btn-sm">Novo</a> -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
     @foreach($users as $user)
-      <li>{{ $user->name}} 
-      <a href="/usuarios/{{ $user->id}}/edit">Edit</a> | 
-      <a href="/usuarios/{{ $user->id}}/delete">Remover</a>
-      </li> 
+    <tr>
+        <th scope="row">{{ $user->id}}</th>
+        <td>{{ $user->name}}</td>
+        <td>
+         <a href="/usuarios/{{ $user->id}}/edit" class="btn btn-primary btn-sm">Edit</a> 
+         <a href="/usuarios/{{ $user->id}}/delete" class="btn btn-danger btn-sm"  onclick="return confirm('Confirmar Exclusão?')">Remover</a>
+        <td>
+      </tr> 
     @endforeach
-    </ul>
-
-    <form action="/usuarios" method="post">
-        {{ csrf_field() }}
-       <input type="text" placeholder="Nome" name="name" class="form-control">
-       <input type="text" placeholder="E-mail" name="email" class="form-control">
-       <input type="text" placeholder="Senha" name="password" class="form-control">
-       <input type="submit" name="salvar" class="btn btn-primary">
-    </form>
-
-    </div>
+    </tbody>
+</table>
+</div>
 @endsection

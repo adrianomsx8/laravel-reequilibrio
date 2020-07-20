@@ -11,8 +11,7 @@
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                          
+                            {{ session('status') }}                       
                         </div>
                     @endif
 
@@ -20,7 +19,11 @@
                     <br> <br>
                             <a href="{{ url('/terapeuta') }}">Registrar Terapeuta</a> | 
 
-                            <a href="{{ url('/terapias') }}">Listar Especialidades</a>
+                            <a href="{{ url('/terapeuta') }}">Editar Terapeuta</a>
+
+                            <a href="{{ url('/terapias') }}">Especialidades</a> | 
+
+                            <a href="{{ url('/usuarios') }}">Usuários</a> | 
                 </div>
             </div>
         </div>
