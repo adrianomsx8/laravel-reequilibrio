@@ -21,7 +21,8 @@
                             <strong>Usuário comum</strong> <br>
                             <a href="{{ url('/terapeuta') }}">Registrar Terapeuta</a> |               
                             <a href="/terapeuta/{{$terapeuta_id}}/editForm">Editar Terapeuta</a>   | 
-                            <a href="/terapeuta/{{$terapeuta_id}}/vincular">Vincular Especialidade</a> 
+                            <a href="/terapeuta/{{$terapeuta_id}}/vincular">Vincular Especialidade</a> | 
+                            <a href="/terapeuta/{{$terapeuta_id}}/especialidades">Listar Especialidades</a>
                             <hr>
                             <strong>Usuário administrador</strong> <br>
                             <a href="{{ url('/usuarios') }}">Usuários</a> | 

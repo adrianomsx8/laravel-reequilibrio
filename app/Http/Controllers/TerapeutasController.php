@@ -45,5 +45,11 @@ class TerapeutasController extends Controller
         return redirect('/home');
     }
 
+    public function especialidades($id)
+    {
+        $terapeuta = Terapeuta::find($id);
+        return view('terapeuta.especialidades', ['terapeuta' => $terapeuta ]);
+    }
+
     
 }
