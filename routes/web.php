@@ -29,6 +29,16 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/terapeuta','TerapeutasController@index');
     Route::post('/terapeuta/create','TerapeutasController@create');
+    Route::get('/terapeuta/{id}/editForm','TerapeutasController@editForm');
+    Route::post('/terapeuta/{id}/edit','TerapeutasController@edit');
+    Route::get('/terapeuta/list','TerapeutasController@list');
+
+    Route::get('rel', function (){
+        $terapeuta = \App\Terapeuta::find(13);
+        foreach ($terapeuta->especialidades as $especialidade) {
+            echo $especialidade->terapia . ' - ';
+        }
+    });
 
     Route::get('terapias/', 'TerapiasController@list');
     Route::get('terapias/index', 'TerapiasController@index');
@@ -37,13 +47,13 @@ Route::middleware('auth')->group(function(){
     Route::post('/terapias/{id}/edit','TerapiasController@edit');
     Route::get('/terapias/{id}/delete','TerapiasController@delete');
     
-    Route::any('/hello', function (){
+    /*Route::any('/hello', function (){
         if(isset($_POST['teste'])){
            return view('hello', ['name' => 'Adriano', 'teste'=> $_POST['teste']]);
         }else{
             return view('hello', ['name' => 'Adriano']);
         }
-    });
+    });*/
 });
 
 Auth::routes();

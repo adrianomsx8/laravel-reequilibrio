@@ -16,4 +16,9 @@ class Terapias extends Model
     protected $fillable = [
         'terapia', 'foto', 'descricao'
     ];
+
+    public function terapeutas ()
+    {
+        return $this->belongsToMany('App\Terapeuta', 'terapeuta_especialidades', 'terapeuta_id', 'terapia_id');
+    }
 }

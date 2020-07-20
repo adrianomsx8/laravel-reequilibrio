@@ -17,13 +17,16 @@
 
                      Bem vindo
                     <br> <br>
-                            <a href="{{ url('/terapeuta') }}">Registrar Terapeuta</a> | 
-
-                            <a href="{{ url('/terapeuta') }}">Editar Terapeuta</a>
-
-                            <a href="{{ url('/terapias') }}">Especialidades</a> | 
-
+                    <hr>
+                            <strong>Usuário comum</strong> <br>
+                            <a href="{{ url('/terapeuta') }}">Registrar Terapeuta</a> |               
+                            <a href="/terapeuta/{{$terapeuta_id}}/editForm">Editar Terapeuta</a>   | 
+                            <a href="/terapeuta/{{$terapeuta_id}}/vincular">Vincular Especialidade</a> 
+                            <hr>
+                            <strong>Usuário administrador</strong> <br>
                             <a href="{{ url('/usuarios') }}">Usuários</a> | 
+                            <a href="{{ url('/terapias') }}">Especialidades</a> | 
+                            <a href="{{ url('/terapeuta/list') }}">Listagem de terapeutas</a>
                 </div>
             </div>
         </div>

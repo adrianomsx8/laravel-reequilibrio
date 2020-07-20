@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
 @include('flash::message')
-    <h1>Registro de Terapeuta</h1>
-    <form action="/terapeuta/create" method="post">
+    <h1>Alteração de Terapeuta</h1>
+    <form action="/terapeuta/{{ $terapeuta->id }}/edit" method="post">
         {{ csrf_field() }}    
         <p class="form-group">
             <label>Nome:</label> 
-            <input type="text" name="nome" class="form-control @if($errors->has('nome')) is-invalid @endif" value="{{$user->name}}">
+            <input type="text" name="nome" class="form-control @if($errors->has('nome')) is-invalid @endif" value="{{$terapeuta->nome}}">
             @if($errors->has('nome'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('nome') }} </strong>
@@ -17,7 +17,7 @@
         </p>
         <p class="form-group">
             <label>Telefone:</label>  
-            <input type="text" name="telefone" class="form-control @if($errors->has('telefone')) is-invalid @endif" value="{{old('telefone')}}">
+            <input type="text" name="telefone" class="form-control @if($errors->has('telefone')) is-invalid @endif" value="{{$terapeuta->telefone}}">
             @if($errors->has('telefone'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('telefone') }} </strong>
@@ -27,7 +27,7 @@
         </p>
         <p class="form-group">
             <label>E-mail:</label>  
-            <input type="text"  name="email" class="form-control @if($errors->has('email')) is-invalid @endif" value="{{$user->email}}">
+            <input type="text"  name="email" class="form-control @if($errors->has('email')) is-invalid @endif" value="{{$terapeuta->email}}">
             @if($errors->has('email'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('email') }} </strong>
@@ -36,7 +36,7 @@
         </p>
         <p class="form-group">
             <label>Foto:</label> 
-            <input type="text"  name="foto" class="form-control @if($errors->has('foto')) is-invalid @endif" value="{{old('foto')}}">
+            <input type="text"  name="foto" class="form-control @if($errors->has('foto')) is-invalid @endif" value="{{$terapeuta->foto}}">
             @if($errors->has('foto'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('foto') }} </strong>
@@ -45,7 +45,7 @@
         </p>
         <p class="form-group">
             <label>Especialidade: </label>
-            <input type="text"  name="especialidade" class="form-control @if($errors->has('especialidade')) is-invalid @endif" value="{{old('especialidade')}}">
+            <input type="text"  name="especialidade" class="form-control @if($errors->has('especialidade')) is-invalid @endif" value="{{$terapeuta->especialidade}}">
             @if($errors->has('especialidade'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('especialidade') }} </strong>
@@ -54,7 +54,7 @@
         </p>
         <p class="form-group">
             <label>Descrição:</label> 
-            <textarea name="descricao" class="form-control @if($errors->has('descricao')) is-invalid @endif" cols="30" rows="5">{{old('descricao')}}</textarea>
+            <textarea name="descricao" class="form-control @if($errors->has('descricao')) is-invalid @endif" cols="30" rows="5">{{$terapeuta->descricao}}</textarea>
             @if($errors->has('descricao'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('descricao') }} </strong>
@@ -63,7 +63,7 @@
         </p>
         <p class="form-group">
             <label>Cidade:</label>
-            <input type="text"  name="cidade" class="form-control @if($errors->has('cidade')) is-invalid @endif" value="{{old('cidade')}}">
+            <input type="text"  name="cidade" class="form-control @if($errors->has('cidade')) is-invalid @endif" value="{{$terapeuta->cidade}}">
             @if($errors->has('cidade'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('cidade') }} </strong>
@@ -72,7 +72,7 @@
         </p>
         <p class="form-group">
             <label>Estado: </label>
-            <input type="text"  name="estado" class="form-control @if($errors->has('estado')) is-invalid @endif" value="{{old('estado')}}">
+            <input type="text"  name="estado" class="form-control @if($errors->has('estado')) is-invalid @endif" value="{{$terapeuta->estado}}">
             @if($errors->has('estado'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('estado') }} </strong>
@@ -81,7 +81,7 @@
         </p>
         <p class="form-group">
             <label>Endereço:</label> 
-            <input type="text"  name="endereco" class="form-control @if($errors->has('endereco')) is-invalid @endif" value="{{old('endereco')}}">
+            <input type="text"  name="endereco" class="form-control @if($errors->has('endereco')) is-invalid @endif" value="{{$terapeuta->endereco}}">
             @if($errors->has('endereco'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('endereco') }} </strong>
@@ -90,7 +90,7 @@
         </p>
         <p class="form-group">
             <label>Formação:</label> 
-            <input type="text"  name="formacao" class="form-control @if($errors->has('formacao')) is-invalid @endif" value="{{old('formacao')}}">
+            <input type="text"  name="formacao" class="form-control @if($errors->has('formacao')) is-invalid @endif" value="{{$terapeuta->formacao}}">
             @if($errors->has('formacao'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('formacao') }} </strong>

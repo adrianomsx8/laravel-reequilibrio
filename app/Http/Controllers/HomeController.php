@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Terapeuta;
+
 
 class HomeController extends Controller
 {
@@ -24,7 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //dd(Auth::user()->id);
-        return view('home');
+        $user_id = Auth::user()->id;
+        $terapeuta = Terapeuta::where('user_id', $user_id )->first();
+        return view('home' , ['terapeuta_id' => $terapeuta->id]);
     }
 }

@@ -14,7 +14,12 @@ class Terapeuta extends Model
      * @var array
      */
     protected $fillable = [
-        'nome', 'telefone', 'email', 'foto', 'especialidade', 'descricao', 'cidade', 'estado', 'endereco', 'formacao'
+        'nome', 'telefone', 'email', 'foto', 'especialidade', 'descricao', 'cidade', 'estado', 'endereco', 'formacao', 'user_id'
     ];
+
+    public function especialidades()
+    {
+        return $this->belongsToMany('App\Terapias', 'terapeuta_especialidades', 'terapeuta_id', 'terapia_id');
+    }
 
 }
