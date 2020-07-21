@@ -3,6 +3,7 @@
 PHP 7.4 <br/>
 <strong>Framework: </strong> Laravel 6.0 <br/>
 <strong>Banco:</strong> PostgreSQL <br/>
+<strong>Layout:</strong> laravel-mix <br/><br/>
 
 <strong>Comandos Básicos</strong> <br/>
 

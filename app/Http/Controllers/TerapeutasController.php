@@ -11,6 +11,17 @@ use App\Terapeuta;
 
 class TerapeutasController extends Controller
 {
+    public function terapeutas()
+    {
+        $terapeutas = Terapeuta::paginate(10);
+        return view('terapeutas', compact('terapeutas'));
+    }
+
+    public function detalhar(terapeuta $id)
+    {
+        return view ('detalhar', ['terapeuta' => $id]);
+    }
+
     public function list(){
         $terapeutas = Terapeuta::all();
         return  view('terapeuta.list' , ['terapeutas' =>   $terapeutas]);
@@ -48,7 +59,7 @@ class TerapeutasController extends Controller
     public function especialidades($id)
     {
         $terapeuta = Terapeuta::find($id);
-        return view('terapeuta.especialidades', ['terapeuta' => $terapeuta ]);
+        return view('terapeuta.especialidades', compact('terapeuta'));
     }
 
     

@@ -15,7 +15,10 @@ Route::get('/', function () {
 });
 
 
-Route::get('/terapeutas','TerapeutasController@list');
+Route::get('/terapeutas','TerapeutasController@terapeutas');
+Route::get('/detalhar/{id}','TerapeutasController@detalhar')->name('detalhar');
+
+//Route::get('/terapeutas','TerapeutasController@list');
 
 Route::middleware('auth')->group(function(){
 
