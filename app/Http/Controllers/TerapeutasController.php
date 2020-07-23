@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TerapeutaRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+
 
 use App\Terapeuta;
 
@@ -62,5 +64,28 @@ class TerapeutasController extends Controller
         return view('terapeuta.especialidades', compact('terapeuta'));
     }
 
-    
+    public function foto($id)
+    {
+        //print phpinfo();
+        return view('terapeuta.foto',  compact('id'));
+    }
+
+    public function upload(Request $request, $id)
+    {       
+        $this->validate($request, [
+            'foto' => 'required|image|mimes:jpeg,png,jpg,',
+        ]);
+
+        if ($request->hasFile('foto')) {   
+            $path = $request->foto->store('public/images');
+            $image_name = substr($path, 14);
+            
+            $terapeuta = Terapeuta::findOrFail($id);         
+            $terapeuta->fotos()->create([
+                'foto' =>  $image_name           
+            ]);
+            flash('foto inserida com sucesso')->success();
+            return redirect('/home');
+        }
+    }  
 }

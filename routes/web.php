@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/terapeuta/{id}/edit','TerapeutasController@edit');
     Route::get('/terapeuta/list','TerapeutasController@list');
     Route::get('/terapeuta/{id}/especialidades','TerapeutasController@especialidades');
+    Route::get('/terapeuta/{id}/foto','TerapeutasController@foto');
+    Route::post('/terapeuta/{id}/upload','TerapeutasController@upload')->name('terapeuta.upload');
 
     Route::get('terapias/', 'TerapiasController@list');
     Route::get('terapias/index', 'TerapiasController@index');

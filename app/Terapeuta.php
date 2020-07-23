@@ -22,4 +22,9 @@ class Terapeuta extends Model
         return $this->belongsToMany('App\Terapias', 'terapeuta_especialidades', 'terapeuta_id', 'terapia_id');
     }
 
+    public function fotos()
+    {
+        return $this->hasMany(TerapeutaFoto::class);
+    }
+
 }

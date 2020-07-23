@@ -6,9 +6,12 @@
 
 <div class="row">
   @foreach($terapeutas as $t)
-    <div class="col-4">
-      <h2><a href="{{route('detalhar', ['id' => $t->id])}}">{{$t->nome}}</a></h2>
-      <p>{{$t->descricao}}</p>
+    <div class="col-4" >
+      @if($t->fotos()->count())
+        <img src="{{asset('/storage/images/' . $t->fotos()->first()->foto)}}" alt="" class="img-fluid" />
+      @endif
+      <h5><a href="{{route('detalhar', ['id' => $t->id])}}">{{$t->nome}}</a></h5>
+      <p>{{ Str::limit($t->descricao, 20) }}</p>
     </div>
   @endforeach
 </div>
