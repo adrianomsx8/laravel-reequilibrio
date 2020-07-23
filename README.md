@@ -16,6 +16,7 @@ php artisan migrate:rollback (desfaz a migration)<br>
 php artisan make:controller UserController (cria novo controller)<br>
 php artisan make:request Terapeuta <br>
 php artisan storage:link
+php artisan tinker
 
 
 <br>

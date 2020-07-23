@@ -87,5 +87,5 @@ class TerapeutasController extends Controller
             flash('foto inserida com sucesso')->success();
             return redirect('/home');
         }
-    }  
+    }
 }

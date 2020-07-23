@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\TerapiasRequest;
 use App\Terapias;
+use App\Especialidades;
 
 class TerapiasController extends Controller
 {
@@ -50,5 +51,27 @@ class TerapiasController extends Controller
         $terapia->delete();
         flash('Registro excluido com sucesso')->success();
         return redirect('/terapias/');
+    }
+
+    public function vincular($id)
+    {
+       $terapias = Terapias::all();
+       return view('terapeuta.vincular',['terapias' => $terapias , 'id'=> $id]);
+    }
+
+    public function vincularSave(Request $request, $id)
+    {
+       $terapias = $request->all()['terapia'];
+       $data = date('Y-m-d h:i:s');
+
+       foreach($terapias as $t){
+         Especialidades::create([
+             'terapeuta_id' => $id,
+             'terapia_id' => $t
+            ]
+         );
+       }
+       flash('Vinculo criado com sucesso')->success();
+       return redirect('/home/');
     }
 }

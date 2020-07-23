@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function(){
     Route::get('/terapeuta/{id}/especialidades','TerapeutasController@especialidades');
     Route::get('/terapeuta/{id}/foto','TerapeutasController@foto');
     Route::post('/terapeuta/{id}/upload','TerapeutasController@upload')->name('terapeuta.upload');
+    Route::get('terapeuta/{id}/vincular', 'TerapiasController@vincular')->name('terapeuta.vincular');
+    Route::post('terapeuta/{id}/vincularSave', 'TerapiasController@vincularSave')->name('terapeuta.vincularSave');
 
     Route::get('terapias/', 'TerapiasController@list');
     Route::get('terapias/index', 'TerapiasController@index');
