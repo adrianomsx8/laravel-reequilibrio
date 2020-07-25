@@ -2,21 +2,19 @@
 
 @section('content')
 <div class="container">
+
 @include('flash::message')
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
+        <painel titulo="Área Restrita">
+             @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}                       
                         </div>
-                    @endif
+             @endif
 
-                     Bem vindo
-                    <br> <br>
+             Bem vindo     
+                    <br> 
                     <hr>
                             <strong>Usuário comum</strong> <br>
                             <a href="{{ url('/terapeuta') }}">Registrar Terapeuta</a> |               
@@ -29,8 +27,9 @@
                             <a href="{{ url('/usuarios') }}">Usuários</a> | 
                             <a href="{{ url('/terapias') }}">Especialidades</a> | 
                             <a href="{{ url('/terapeuta/list') }}">Listagem de terapeutas</a>
-                </div>
-            </div>
+     </painel>
+        
+          
         </div>
     </div>
 </div>
