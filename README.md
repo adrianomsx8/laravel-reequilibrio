@@ -8,6 +8,7 @@ PHP 7.4 <br/>
 <strong>Banco:</strong> PostgreSQL <br/>
 Twitter Bootstrap 4.3.1 <br/>
 Vue Js 2.5.17<br/>
+ionicons 5.1.2
 
 <strong>Comandos Úteis Laravel</strong> <br/>
 
@@ -21,13 +22,13 @@ php artisan make:controller UserController (cria novo controller)<br>
 php artisan make:request Terapeuta <br>
 php artisan storage:link (link simbólico para upload de arquivos)
 php artisan tinker (recurso para exetar trecho de código pelo terminal)
-
-
+<br/><br/>
+<strong>Compilar o vue Js:</strong> npm run watch <br/>
 <br>
 <hr>
 Recursos <br/>
-<strong>Utilização da flash message:</strong> https://github.com/laracasts/flash
-<strong>Compilar o vue Js:</strong> npm run watch
-
+<strong>Utilização da flash message:</strong> https://github.com/laracasts/flash <br/>
+https://adminlte.io/themes/AdminLTE/pages/widgets.html<br/>
+https://ionicons.com/
 
 
