@@ -16,20 +16,21 @@ Route::get('/', function () {
 
 
 Route::get('/terapeutas','TerapeutasController@terapeutas');
-Route::get('/detalhar/{id}','TerapeutasController@detalhar')->name('detalhar');
+Route::get('/terapeuta/detalhar/{id}','TerapeutasController@detalhar')->name('detalhar');
 
 //Route::get('/terapeutas','TerapeutasController@list');
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function(){
 
+    /***** USUÁRIOS  */
     Route::get('/usuarios','UsersController@index');
     Route::post('/usuarios','UsersController@create');
     Route::get('/usuarios/{id}/delete','UsersController@delete');
     Route::get('/usuarios/{id}/edit','UsersController@editForm');
     Route::post('/usuarios/{id}','UsersController@edit');
-
     //Route::resource('/usuarios', 'UsersController');
 
+    /** TERAPEUTAS */
     Route::get('/terapeuta','TerapeutasController@index');
     Route::post('/terapeuta/create','TerapeutasController@create');
     Route::get('/terapeuta/{id}/editForm','TerapeutasController@editForm');
@@ -41,14 +42,15 @@ Route::middleware('auth')->group(function(){
     Route::get('terapeuta/{id}/vincular', 'TerapiasController@vincular')->name('terapeuta.vincular');
     Route::post('terapeuta/{id}/vincularSave', 'TerapiasController@vincularSave')->name('terapeuta.vincularSave');
 
+    /***** TERAPIAS  */
     Route::get('terapias/', 'TerapiasController@list');
     Route::get('terapias/index', 'TerapiasController@index');
     Route::post('terapias/create', 'TerapiasController@create');
     Route::get('/terapias/{id}/editForm','TerapiasController@editForm');
     Route::post('/terapias/{id}/edit','TerapiasController@edit');
     Route::get('/terapias/{id}/delete','TerapiasController@delete');
-    
 });
+
 
 Auth::routes();
 

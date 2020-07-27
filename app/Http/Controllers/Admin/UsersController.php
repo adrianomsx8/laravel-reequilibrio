@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,7 +11,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();   
-        return view('users.list', ['users' => $users]);
+        return view('admin.users.list', ['users' => $users]);
     }
 
     public function create(Request $request)
@@ -24,7 +24,7 @@ class UsersController extends Controller
     public function editForm($id)
     {
         $user = User::findOrFail($id);
-        return  view('users.edit', ['user' => $user ]);
+        return  view('admin.users.edit', ['user' => $user ]);
     }
 
     public function edit(Request $request, $id)

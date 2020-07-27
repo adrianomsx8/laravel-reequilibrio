@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\TerapiasRequest;
 use App\Terapias;
@@ -11,7 +12,7 @@ class TerapiasController extends Controller
 {
     public function index()
     {
-      return view('terapias.index');
+      return view('admin.terapias.index');
     }
 
     public function create(TerapiasRequest $request)
@@ -27,13 +28,13 @@ class TerapiasController extends Controller
     public function list()
     {
         $terapias = Terapias::all();
-        return view('terapias.list', ['terapias' => $terapias]);
+        return view('admin.terapias.list', ['terapias' => $terapias]);
     }
 
     public function editForm($id)
     {
         $terapia = Terapias::findOrFail($id);
-        return  view('terapias.edit', ['terapia' => $terapia ]);
+        return  view('admin.terapias.edit', ['terapia' => $terapia ]);
     }
 
     public function edit(TerapiasRequest $request, $id)
@@ -56,7 +57,7 @@ class TerapiasController extends Controller
     public function vincular($id)
     {
        $terapias = Terapias::all();
-       return view('terapeuta.vincular',['terapias' => $terapias , 'id'=> $id]);
+       return view('admin.terapeuta.vincular',['terapias' => $terapias , 'id'=> $id]);
     }
 
     public function vincularSave(Request $request, $id)

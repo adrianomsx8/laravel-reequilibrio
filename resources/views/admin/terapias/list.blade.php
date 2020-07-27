@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 @include('flash::message')
-   <a href="/terapias/index" class="btn btn-success btn-sm">Novo</a>
+   <a href="/admin/terapias/index" class="btn btn-success btn-sm">Novo</a>
     <h1>Listagem de terapias</h1>
     <table class="table table-striped">
   <thead>
@@ -21,8 +21,8 @@
         <td>{{ $terapia->terapia}}</td>
         <td>{{ $terapia->descricao}}</td>
         <td>
-        <a href="/terapias/{{ $terapia->id}}/editForm" class="btn btn-primary btn-sm">Editar</a> 
-        <a href="/terapias/{{ $terapia->id}}/delete" class="btn btn-danger btn-sm"  onclick="return confirm('Confirmar Exclusão?')">Remover</a> 
+        <a href="/admin/terapias/{{ $terapia->id}}/editForm" class="btn btn-primary btn-sm">Editar</a> 
+        <a href="admin/terapias/{{ $terapia->id}}/delete" class="btn btn-danger btn-sm"  onclick="return confirm('Confirmar Exclusão?')">Remover</a> 
         </td>
         </tr>
     @endforeach
