@@ -16,7 +16,11 @@ class TerapeutasController extends Controller
     
     public function list(){
         $terapeutas = Terapeuta::all('id', 'nome','email');
-        return  view('admin.terapeuta.list' , ['terapeutas' =>   $terapeutas]);
+        $listaMigalhas = json_encode([
+            ["titulo" => "Home", "url" => route('home')],
+            ["titulo" => "Listagen", "url" => ""]
+        ]);
+        return  view('admin.terapeuta.list' , compact('terapeutas', 'listaMigalhas') );
     }
 
     public function index()

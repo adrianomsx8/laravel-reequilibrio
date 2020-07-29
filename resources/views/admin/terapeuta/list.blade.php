@@ -4,6 +4,7 @@
 <div class="container">
 @include('flash::message')
   <painel titulo="Listagem de terapeutas">
+     <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
     <tabela-lista 
     v-bind:titulos="['#', 'Terapeuta', 'E-mail']"
     v-bind:itens="{{$terapeutas}}"
