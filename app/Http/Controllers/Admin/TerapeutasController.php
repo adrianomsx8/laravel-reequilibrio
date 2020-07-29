@@ -15,7 +15,7 @@ class TerapeutasController extends Controller
 {
     
     public function list(){
-        $terapeutas = Terapeuta::all();
+        $terapeutas = Terapeuta::all('id', 'nome','email');
         return  view('admin.terapeuta.list' , ['terapeutas' =>   $terapeutas]);
     }
 
