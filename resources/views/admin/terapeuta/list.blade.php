@@ -4,6 +4,7 @@
 <div class="container">
 @include('flash::message')
   <painel titulo="Listagem de terapeutas">
+     <modal-link tipo="button" nome="meuModalTeste" titulo="criar" css=""></modal-link>
      <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
     <tabela-lista 
     v-bind:titulos="['#', 'Terapeuta', 'E-mail']"
@@ -13,5 +14,12 @@
     >
     </tabela-lista>'
     </painel>
+    <modal nome="meuModalTeste">
+      <form>
+      <painel titulo="Listagem de terapeutas">
+        teste
+      </form>
+    </painel>
+    </modal>
 </div>
 @endsection
