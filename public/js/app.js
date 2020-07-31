@@ -2044,11 +2044,11 @@ __webpack_require__.r(__webpack_exports__);
 
       if (ordem == "asc") {
         this.itens.sort(function (a, b) {
-          if (a[ordemCol] > b[ordemCol]) {
+          if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) {
             return 1;
           }
 
-          if (a[ordemCol] < b[ordemCol]) {
+          if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) {
             return -1;
           }
 
@@ -2056,11 +2056,11 @@ __webpack_require__.r(__webpack_exports__);
         });
       } else {
         this.itens.sort(function (a, b) {
-          if (a[ordemCol] < b[ordemCol]) {
+          if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) {
             return 1;
           }
 
-          if (a[ordemCol] > b[ordemCol]) {
+          if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) {
             return -1;
           }
 
