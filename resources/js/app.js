@@ -27,6 +27,8 @@ Vue.component('tabela-lista', require('./components/TabelaLista.vue').default);
 Vue.component('migalhas', require('./components/Migalhas.vue').default);
 Vue.component('modal', require('./components/modal/Modal.vue').default);
 Vue.component('modal-link', require('./components/modal/ModalLink.vue').default);
+Vue.component('formulario', require('./components/formulario/Formulario.vue').default);
+Vue.component('campo', require('./components/formulario/Campo.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
