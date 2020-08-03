@@ -23,7 +23,10 @@ php artisan make:request Terapeuta <br>
 php artisan storage:link (link simbólico para upload de arquivos)
 php artisan tinker (recurso para exetar trecho de código pelo terminal)
 <br/><br/>
+
+<strong>Comandos Úteis Utilização do Vue js</strong> <br/>
 <strong>Compilar o vue Js:</strong> npm run watch <br/>
+npm i vuex <br/>
 <br>
 <hr>
 Recursos <br/>

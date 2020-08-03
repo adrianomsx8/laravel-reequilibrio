@@ -1,9 +1,11 @@
 <template>
 <div>  
     <div class="form-inline">
-          <a v-if="criar" v-bind:href="criar" class="btn btn-success btn-sm">Criar</a>    
+      <!-- <p>{{this.$store.state.item}}</p> -->
+          <a v-if="criar && !modal" v-bind:href="criar" class="btn btn-success btn-sm">Criar</a> 
+          <modal-link v-if="criar && modal" tipo="button" nome="adicionar" titulo="criar" css=""></modal-link>   
     </div>
-    <div class="float-right">
+    <div class="form-group float-right">
           <input type="search" placeholder="Buscar" class="form-control" v-model="buscar">
     </div>
     <table class="table table-striped table-hover" id="tabela">
@@ -21,18 +23,22 @@
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="token">
                <a v-if="detalhe" v-bind:href="detalhe" class="btn btn-success btn-sm">Detalhe</a> 
-               <a v-if="editar" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a>  
+               <a   v-if="editar && !modal" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a>
+               <modal-link v-if="editar && modal" v-bind:item="item" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>   
+   
               <!-- <a v-if="deletar" v-bind:href="deletar" class="btn btn-danger btn-sm" v-on:click="confirmar()">Deletar</a> --> 
                <a href="#" v-on:click="executaForm(index)"  class="btn btn-danger btn-sm">Deletar</a>
             </form>
             <span v-if="!token">
                 <a v-if="detalhe" v-bind:href="detalhe" class="btn btn-success btn-sm">Detalhe</a> 
-                <a v-if="editar" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a>  {{i}}
+                <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a>
+                <modal-link v-if="editar && modal"  v-bind:item="item" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>   
                 <a v-if="deletar" v-bind:href="deletar" class="btn btn-danger btn-sm" v-on:click="confirmar()">Deletar</a>  
             </span>
              <span v-if="token && !deletar">
                 <a v-if="detalhe" v-bind:href="detalhe" class="btn btn-success btn-sm">Detalhe</a> 
-                <a v-if="editar" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a>  {{i}}
+                <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a> 
+                <modal-link v-if="editar && modal"   v-bind:item="item" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>             
              </span> 
 
            </td>
@@ -44,7 +50,7 @@
 
 <script>
     export default {
-     props:['titulos', 'itens', 'ordem', 'ordemcol','criar', 'detalhe', 'editar', 'deletar', 'token'],
+     props:['titulos', 'itens', 'ordem', 'ordemcol','criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
      data: function(){
          return {
             buscar: '',
@@ -70,6 +76,8 @@
      },
      computed:{
          lista:function(){
+
+           //this.$store.commit('setItem',{opa:"ok alterado"} );
 
              let ordem = this.ordemAux;
              let ordemCol = this.ordemAuxCol;
