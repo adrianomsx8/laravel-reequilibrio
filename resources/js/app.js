@@ -50,5 +50,8 @@ Vue.component('campo', require('./components/formulario/Campo.vue').default);
 
 const app = new Vue({
     el: '#app',
-    store
+    store,
+    mounted: function(){
+        document.getElementById('app').style.display = "block";
+    }
 });

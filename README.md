@@ -32,6 +32,7 @@ npm i vuex <br/>
 Recursos <br/>
 <strong>Utilização da flash message:</strong> https://github.com/laracasts/flash <br/>
 https://adminlte.io/themes/AdminLTE/pages/widgets.html<br/>
-https://ionicons.com/
+https://ionicons.com/ <br/>
+https://github.com/esjdev/laravel-6.x-ptBR-localization
 
 

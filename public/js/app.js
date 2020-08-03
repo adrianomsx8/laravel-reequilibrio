@@ -52818,7 +52818,10 @@ Vue.component('campo', __webpack_require__(/*! ./components/formulario/Campo.vue
 
 var app = new Vue({
   el: '#app',
-  store: store
+  store: store,
+  mounted: function mounted() {
+    document.getElementById('app').style.display = "block";
+  }
 });
 
 /***/ }),
