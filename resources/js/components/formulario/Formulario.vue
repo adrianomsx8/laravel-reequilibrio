@@ -3,7 +3,7 @@
      <input v-if="alterMethod" type="hidden" name="_method" v-bind:value="alterMethod"/>
      <input v-if="token" type="hidden" name="_token" v-bind:value="token"/>
       <slot></slot>
-      <input type="submit" name="salvar" v-bind:class="btn || 'btn btn-primary btn-lg'">
+     <!-- <input type="submit" name="salvar" v-bind:class="btn || 'btn btn-primary btn-lg'"> -->
    </form>
 </template>
 

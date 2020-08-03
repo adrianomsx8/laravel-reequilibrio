@@ -14,26 +14,23 @@
     >
     </tabela-lista>'
     </painel>
-    <modal nome="adicionar">
-      <form>
-      <painel titulo="Listagem de terapeutas">
-        <formulario css="" action="#" method="put" enctype="" token="{{ csrf_token() }}">      
-          <campo label="E-mail" type="email" name="email" btn="btn btn-primary btn-sm"></campo>
-        
+    <modal nome="adicionar" titulo="Adicionar">
+        <formulario id="formAdicionar"css="" action="#" method="put" enctype="" token="{{ csrf_token() }}">      
+          <campo label="E-mail" type="email" name="email" btn="btn btn-primary btn-sm"></campo>    
         </formulario>
-      </form>
-    </painel>
+        <span slot="botoes"><button type="button" form="formAdicionar" class="btn btn-primary">Salvar</button></span>    
     </modal>
 
-    <modal nome="editar">
-      <form>
-      <painel titulo="Listagem de terapeutas">
-        <formulario css="" action="#" method="put" enctype="" token="{{ csrf_token() }}">      
-          <campo label="E-mail" type="email" name="email"  btn="btn btn-primary btn-sm"></campo>
-          <input type="text" name="teste" value=""  v-model="$store.state.item.email" />
+    <modal nome="editar" titulo="Editar  terapeutas">
+        <formulario id="formEdit" css="" action="#" method="put" enctype="" token="{{ csrf_token() }}">      
+          <campo label="E-mail" type="email" name="email" v-model="$store.state.item.email"  btn="btn btn-primary btn-sm"></campo>
+          <input type="text" name="teste" value=""  v-model="$store.state.item.id" />
         </formulario>
-      </form>
-    </painel>
+        <span slot="botoes"><button type="button" form="formEdit" class="btn btn-primary">Salvar</button></span>    
+    </modal>
+
+    <modal nome="detalhe" v-bind:titulo="$store.state.item.nome">
+        <p> Descrição </p> @{{$store.state.item.nome}}
     </modal>
 </div>
 @endsection

@@ -3274,6 +3274,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'ordem', 'ordemcol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
   data: function data() {
@@ -3338,6 +3344,8 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.buscar) {
         return this.itens.filter(function (res) {
+          res = Object.values(res);
+
           for (var k = 0; k < res.length; k++) {
             if ((res[k] + "").toLowerCase().indexOf(_this.buscar.toLowerCase()) >= 0) {
               return true;
@@ -3465,8 +3473,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['nome']
+  props: ['nome', 'titulo']
 });
 
 /***/ }),
@@ -40051,7 +40072,7 @@ var render = function() {
                                 domProps: { value: _vm.token }
                               }),
                               _vm._v(" "),
-                              _vm.detalhe
+                              _vm.detalhe && !_vm.modal
                                 ? _c(
                                     "a",
                                     {
@@ -40060,6 +40081,18 @@ var render = function() {
                                     },
                                     [_vm._v("Detalhe")]
                                   )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.detalhe && _vm.modal
+                                ? _c("modal-link", {
+                                    attrs: {
+                                      item: item,
+                                      tipo: "button",
+                                      nome: "detalhe",
+                                      titulo: "Detalhe",
+                                      css: "btn btn-success btn-sm"
+                                    }
+                                  })
                                 : _vm._e(),
                               _vm._v(" "),
                               _vm.editar && !_vm.modal
@@ -40107,7 +40140,7 @@ var render = function() {
                         ? _c(
                             "span",
                             [
-                              _vm.detalhe
+                              _vm.detalhe && !_vm.modal
                                 ? _c(
                                     "a",
                                     {
@@ -40116,6 +40149,18 @@ var render = function() {
                                     },
                                     [_vm._v("Detalhe")]
                                   )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.detalhe && _vm.modal
+                                ? _c("modal-link", {
+                                    attrs: {
+                                      item: item,
+                                      tipo: "button",
+                                      nome: "detalhe",
+                                      titulo: "Detalhe",
+                                      css: "btn btn-success btn-sm"
+                                    }
+                                  })
                                 : _vm._e(),
                               _vm._v(" "),
                               _vm.editar && !_vm.modal
@@ -40165,7 +40210,7 @@ var render = function() {
                         ? _c(
                             "span",
                             [
-                              _vm.detalhe
+                              _vm.detalhe && !_vm.modal
                                 ? _c(
                                     "a",
                                     {
@@ -40174,6 +40219,18 @@ var render = function() {
                                     },
                                     [_vm._v("Detalhe")]
                                   )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.detalhe && _vm.modal
+                                ? _c("modal-link", {
+                                    attrs: {
+                                      item: item,
+                                      tipo: "button",
+                                      nome: "detalhe",
+                                      titulo: "Detalhe",
+                                      css: "btn btn-success btn-sm"
+                                    }
+                                  })
                                 : _vm._e(),
                               _vm._v(" "),
                               _vm.editar && !_vm.modal
@@ -40325,12 +40382,7 @@ var render = function() {
           })
         : _vm._e(),
       _vm._v(" "),
-      _vm._t("default"),
-      _vm._v(" "),
-      _c("input", {
-        class: _vm.btn || "btn btn-primary btn-lg",
-        attrs: { type: "submit", name: "salvar" }
-      })
+      _vm._t("default")
     ],
     2
   )
@@ -40370,13 +40422,64 @@ var render = function() {
       }
     },
     [
-      _c("div", { staticClass: "modal-dialog modal-lg" }, [
-        _c("div", { staticClass: "modal-content" }, [_vm._t("default")], 2)
+      _c("div", { staticClass: "modal-dialog", attrs: { role: "document" } }, [
+        _c("div", { staticClass: "modal-content" }, [
+          _c("div", { staticClass: "modal-header" }, [
+            _c(
+              "h5",
+              {
+                staticClass: "modal-title",
+                attrs: { id: "exampleModalLabel" }
+              },
+              [_vm._v(_vm._s(_vm.titulo))]
+            ),
+            _vm._v(" "),
+            _vm._m(0)
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "modal-body" }, [_vm._t("default")], 2),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "modal-footer" },
+            [
+              _vm._t("botoes"),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-secondary",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Close")]
+              )
+            ],
+            2
+          )
+        ])
       ])
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      },
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+    )
+  }
+]
 render._withStripped = true
 
 
