@@ -41,6 +41,8 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function
     Route::post('/terapeuta/{id}/upload','TerapeutasController@upload')->name('terapeuta.upload');
     Route::get('terapeuta/{id}/vincular', 'TerapiasController@vincular')->name('terapeuta.vincular');
     Route::post('terapeuta/{id}/vincularSave', 'TerapiasController@vincularSave')->name('terapeuta.vincularSave');
+    Route::get('/terapeuta/show/{id}','TerapeutasController@show');
+    Route::put('/terapeuta/editar/{id}','TerapeutasController@editar');
 
     /***** TERAPIAS  */
     Route::get('terapias/', 'TerapiasController@list');
@@ -49,6 +51,8 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function
     Route::get('/terapias/{id}/editForm','TerapiasController@editForm');
     Route::post('/terapias/{id}/edit','TerapiasController@edit');
     Route::get('/terapias/{id}/delete','TerapiasController@delete');
+
+    //Route::resource('Terapeutas', 'TerapeutasController');
 });
 
 

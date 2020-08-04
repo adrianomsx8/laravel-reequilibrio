@@ -3280,6 +3280,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'ordem', 'ordemcol', 'criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
   data: function data() {
@@ -3519,10 +3520,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tipo', 'nome', 'titulo', 'css', 'item'],
+  props: ['tipo', 'nome', 'titulo', 'css', 'item', 'url'],
   methods: {
     preencheFormulario: function preencheFormulario() {
-      this.$store.commit('setItem', this.item);
+      var _this = this;
+
+      axios.get(this.url + this.item.id).then(function (res) {
+        //console.log(res.data);
+        _this.$store.commit('setItem', res.data);
+      }); //  this.$store.commit('setItem', this.item);
     }
   }
 });
@@ -40087,6 +40093,7 @@ var render = function() {
                                 ? _c("modal-link", {
                                     attrs: {
                                       item: item,
+                                      url: _vm.detalhe,
                                       tipo: "button",
                                       nome: "detalhe",
                                       titulo: "Detalhe",
@@ -40110,6 +40117,7 @@ var render = function() {
                                 ? _c("modal-link", {
                                     attrs: {
                                       item: item,
+                                      url: _vm.editar,
                                       tipo: "button",
                                       nome: "editar",
                                       titulo: "Editar",
@@ -40155,6 +40163,7 @@ var render = function() {
                                 ? _c("modal-link", {
                                     attrs: {
                                       item: item,
+                                      url: _vm.detalhe,
                                       tipo: "button",
                                       nome: "detalhe",
                                       titulo: "Detalhe",
@@ -40178,6 +40187,7 @@ var render = function() {
                                 ? _c("modal-link", {
                                     attrs: {
                                       item: item,
+                                      url: _vm.editar,
                                       tipo: "button",
                                       nome: "editar",
                                       titulo: "Editar",
@@ -40225,6 +40235,7 @@ var render = function() {
                                 ? _c("modal-link", {
                                     attrs: {
                                       item: item,
+                                      url: _vm.detalhe,
                                       tipo: "button",
                                       nome: "detalhe",
                                       titulo: "Detalhe",
@@ -40247,6 +40258,7 @@ var render = function() {
                               _vm.editar && _vm.modal
                                 ? _c("modal-link", {
                                     attrs: {
+                                      url: _vm.editar,
                                       item: item,
                                       tipo: "button",
                                       nome: "editar",

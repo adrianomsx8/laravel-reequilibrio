@@ -58,6 +58,14 @@ class TerapeutasController extends Controller
         return view('admin.terapeuta.especialidades', compact('terapeuta'));
     }
 
+    public function show($id){
+       return Terapeuta::find($id);
+    }
+
+    public function editar(Request $request, $id){
+       dd($request, $id);
+    }
+
     public function foto($id)
     {
         //print phpinfo();
