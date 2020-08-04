@@ -3314,11 +3314,12 @@ __webpack_require__.r(__webpack_exports__);
       //this.$store.commit('setItem',{opa:"ok alterado"} );
       var ordem = this.ordemAux;
       var ordemCol = this.ordemAuxCol;
+      var lista = this.itens.data;
       ordem = ordem.toLowerCase();
       ordemCol = parseInt(ordemCol);
 
       if (ordem == "asc") {
-        this.itens.sort(function (a, b) {
+        lista.sort(function (a, b) {
           if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) {
             return 1;
           }
@@ -3330,7 +3331,7 @@ __webpack_require__.r(__webpack_exports__);
           return 0;
         });
       } else {
-        this.itens.sort(function (a, b) {
+        lista.sort(function (a, b) {
           if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) {
             return 1;
           }
@@ -3344,7 +3345,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (this.buscar) {
-        return this.itens.filter(function (res) {
+        return lista.filter(function (res) {
           res = Object.values(res);
 
           for (var k = 0; k < res.length; k++) {
@@ -3357,7 +3358,7 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
 
-      return this.itens;
+      return lista;
     }
   }
 });

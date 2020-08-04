@@ -7,12 +7,15 @@
     <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
     <tabela-lista 
     v-bind:titulos="['#', 'Terapeuta', 'E-mail']"
-    v-bind:itens="{{$terapeutas}}"
+    v-bind:itens="{{json_encode($terapeutas)}}"
     ordem="desc" ordemcol="1"
     criar="#criar" detalhe="/admin/terapeuta/show/" editar="/admin/terapeuta/show/" deletar="/admin/terapeuta/deletar/" token="{{ csrf_token() }}"
     modal="sim"
     >
     </tabela-lista>
+    <div align="center">
+     {{$terapeutas->links()}}
+    </div>
     </painel>
     <modal nome="adicionar" titulo="Adicionar">
         <formulario id="formAdicionar"css="" action="#" method="put" enctype="" token="{{ csrf_token() }}">      
