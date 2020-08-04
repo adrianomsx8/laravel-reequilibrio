@@ -19,7 +19,7 @@
         <tr v-for="(item, index) in lista">
           <td v-for="i in item">{{i}}</td>
           <td v-if="detalhe || editar || deletar">
-            <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar" method="post">
+            <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar + item.id" method="post">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="token">
                <a v-if="detalhe && !modal" v-bind:href="detalhe" class="btn btn-success btn-sm">Detalhe</a> 

@@ -9,7 +9,7 @@
     v-bind:titulos="['#', 'Terapeuta', 'E-mail']"
     v-bind:itens="{{$terapeutas}}"
     ordem="desc" ordemcol="1"
-    criar="#criar" detalhe="/admin/terapeuta/show/" editar="/admin/terapeuta/show/" deletar="#deletar" token="{{ csrf_token() }}"
+    criar="#criar" detalhe="/admin/terapeuta/show/" editar="/admin/terapeuta/show/" deletar="/admin/terapeuta/deletar/" token="{{ csrf_token() }}"
     modal="sim"
     >
     </tabela-lista>

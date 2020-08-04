@@ -43,6 +43,7 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function
     Route::post('terapeuta/{id}/vincularSave', 'TerapiasController@vincularSave')->name('terapeuta.vincularSave');
     Route::get('/terapeuta/show/{id}','TerapeutasController@show');
     Route::put('/terapeuta/editar/{id}','TerapeutasController@editar');
+    Route::delete('/terapeuta/deletar/{id}','TerapeutasController@deletar');
 
     /***** TERAPIAS  */
     Route::get('terapias/', 'TerapiasController@list');

@@ -66,6 +66,10 @@ class TerapeutasController extends Controller
        dd($request, $id);
     }
 
+    public function deletar($id){
+      dd($id);
+    }
+
     public function foto($id)
     {
         //print phpinfo();
