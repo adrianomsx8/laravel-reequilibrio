@@ -9,7 +9,7 @@
           nome="{{$t->nome}}"
           descricao="{{ Str::limit($t->descricao, 20) }}"
           imagem="{{asset('/storage/images/' . $t->foto)}}"
-          detalhar="{{route('detalhar', ['id' => $t->id])}}"
+          detalhar="{{route('detalhar', [$t->id, Str::slug($t->nome)])}}"
           ></card>
     @endforeach
   </div>

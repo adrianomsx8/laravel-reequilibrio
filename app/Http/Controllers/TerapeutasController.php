@@ -16,24 +16,11 @@ class TerapeutasController extends Controller
 {
     public function terapeutas()
     {
-        //$terapeutas = Terapeuta::select('id', 'nome','email', 'descricao')->paginate(10);
-        //$terapeutas = Terapeuta::select('id', 'nome','email', 'descricao')->paginate(10);
         $terapeutas = DB::table('terapeuta')
             ->join('terapeuta_fotos', 'terapeuta.id', '=', 'terapeuta_fotos.terapeuta_id')
-            ->select('terapeuta.*', 'terapeuta_fotos.*')
+            ->select('terapeuta.id','terapeuta.nome','terapeuta.descricao', 'terapeuta_fotos.foto')
             ->paginate(2);
 
         return view('terapeuta.index', compact('terapeutas'));
-    }
-    
-    public function detalhar(terapeuta $id)
-    {
-        die('teste');
-        return view ('terapeuta.detalhar', ['terapeuta' => $id]);
-    }
-
-    public function detalhe(terapeuta $id){
-        return view ('terapeuta.detalhar', ['terapeuta' => $id]);
-    }
-    
+    }   
 }

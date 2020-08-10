@@ -10,14 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Terapeuta;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 
 Route::get('/terapeutas','TerapeutasController@terapeutas');
-Route::get('/terapeuta/detalhar/{id}','TerapeutasController@detalhar')->name('detalhar');
+//Route::get('/terapeuta/detalhar/{id}','TerapeutasController@detalhar')->name('detalhar');
 //Route::get('/terapeutas','TerapeutasController@list');
+//Route::get('/terapeuta/{id}/detalhar/','TerapeutasController@detalhar');
+
+Route::get('/terapeuta/detalhar/{id}', function($id){
+    $terapeuta = Terapeuta::find($id);
+    return view ('terapeuta.detalhar', compact('terapeuta'));
+})->name('detalhar');
 
 Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function(){
 

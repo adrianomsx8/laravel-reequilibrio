@@ -40110,7 +40110,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card" }, [
-    _c("div", { staticClass: "card-header" }, [_vm._v(_vm._s(_vm.titulo))]),
+    _vm.titulo
+      ? _c("div", { staticClass: "card-header" }, [_vm._v(_vm._s(_vm.titulo))])
+      : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [_vm._t("default")], 2)
   ])
