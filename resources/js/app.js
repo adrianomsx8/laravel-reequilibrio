@@ -9,6 +9,11 @@ require('./bootstrap');
 window.Vue = require('vue');
 import Vuex from 'Vuex';
 Vue.use(Vuex);
+
+import Vue from 'vue';
+import CKEditor from '@ckeditor/ckeditor5-vue';
+Vue.use( CKEditor );
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -42,6 +47,8 @@ Vue.component('modal', require('./components/modal/Modal.vue').default);
 Vue.component('modal-link', require('./components/modal/ModalLink.vue').default);
 Vue.component('formulario', require('./components/formulario/Formulario.vue').default);
 Vue.component('campo', require('./components/formulario/Campo.vue').default);
+Vue.component('editor', require('./components/Editor.vue').default);
+Vue.component('card', require('./components/Card.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

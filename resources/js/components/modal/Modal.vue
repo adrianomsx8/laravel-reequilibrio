@@ -1,4 +1,5 @@
 <template>
+
     <!-- Modal -->
 <div class="modal fade" v-bind:id="nome" tabindex="-1" role="dialog" v-bind:aria-labelledby="nome" aria-hidden="true">
   <div class="modal-dialog" role="document">

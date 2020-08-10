@@ -17,7 +17,6 @@ Route::get('/', function () {
 
 Route::get('/terapeutas','TerapeutasController@terapeutas');
 Route::get('/terapeuta/detalhar/{id}','TerapeutasController@detalhar')->name('detalhar');
-
 //Route::get('/terapeutas','TerapeutasController@list');
 
 Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function(){

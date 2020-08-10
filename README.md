@@ -21,7 +21,8 @@ php artisan migrate:rollback (desfaz a migration)<br>
 php artisan make:controller UserController (cria novo controller)<br>
 php artisan make:request Terapeuta <br>
 php artisan storage:link (link simbólico para upload de arquivos)<br>
-php artisan tinker (recurso para exetar trecho de código pelo terminal)
+php artisan tinker (recurso para exetar trecho de código pelo terminal)<br>
+php artisan migrate:status
 <br/><br/>
 
 <strong>Comandos Úteis Utilização do Vue js</strong> <br/>
@@ -33,6 +34,7 @@ Recursos <br/>
 <strong>Utilização da flash message:</strong> https://github.com/laracasts/flash <br/>
 https://adminlte.io/themes/AdminLTE/pages/widgets.html<br/>
 https://ionicons.com/ <br/>
-https://github.com/esjdev/laravel-6.x-ptBR-localization
+https://github.com/esjdev/laravel-6.x-ptBR-localization<br/>
+https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/vuejs.html#v-model
 
 
