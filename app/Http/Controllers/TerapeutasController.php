@@ -14,13 +14,23 @@ use App\Terapeuta;
 
 class TerapeutasController extends Controller
 {
-    public function terapeutas()
+    public function terapeutas(Request $request)
     {
-        $terapeutas = DB::table('terapeuta')
+        if(isset($request->busca) && $request->busca != ""){
+            $busca = $request->busca;
+            $terapeutas = DB::table('terapeuta')
+            ->join('terapeuta_fotos', 'terapeuta.id', '=', 'terapeuta_fotos.terapeuta_id')
+            ->select('terapeuta.id','terapeuta.nome','terapeuta.descricao', 'terapeuta_fotos.foto')
+            ->orWhere('nome', 'like', '%'.$busca.'%')
+            ->paginate(2);
+        }else{
+            $busca = "";
+             $terapeutas = DB::table('terapeuta')
             ->join('terapeuta_fotos', 'terapeuta.id', '=', 'terapeuta_fotos.terapeuta_id')
             ->select('terapeuta.id','terapeuta.nome','terapeuta.descricao', 'terapeuta_fotos.foto')
             ->paginate(2);
+        }
 
-        return view('terapeuta.index', compact('terapeutas'));
+        return view('terapeuta.index', compact('terapeutas', 'busca'));
     }   
 }

@@ -12,14 +12,14 @@
 */
 
 use App\Terapeuta;
-
+use Illuminate\Http\Resquest;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/terapeutas','TerapeutasController@terapeutas');
+Route::get('/terapeutas','TerapeutasController@terapeutas')->name('terapeutas');
 //Route::get('/terapeuta/detalhar/{id}','TerapeutasController@detalhar')->name('detalhar');
 //Route::get('/terapeutas','TerapeutasController@list');
 //Route::get('/terapeuta/{id}/detalhar/','TerapeutasController@detalhar');

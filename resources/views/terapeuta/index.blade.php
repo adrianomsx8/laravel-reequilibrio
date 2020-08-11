@@ -3,6 +3,12 @@
 @section('content')
 <div class="container">
   <painel titulo="Terapeutas">
+    <p>
+      <form class="form-inline text-center" action="{{route('terapeutas')}}" method="get">
+        <input type="search" class="form-control" name="busca" placeholder="Buscar" value="{{isset($busca) ? $busca : ""}}" />
+        <button class="btn btn-info">Buscar</button>
+      </form>
+    </p>
   <div class="row">
     @foreach($terapeutas as $t)
       <card 
