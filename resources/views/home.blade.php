@@ -35,9 +35,11 @@
             <div class="col-5" >
               <caixa titulo="Especialidades" url="{{ url('/admin/terapias') }}" contador="{{$total_terapias}}" cor="#00c0ef" icone="medkit"></caixa>
             </div>
+            @can('eUsuario')
             <div class="col-5" >
               <caixa titulo="Listagem de terapeutas" contador="{{$total_terapeutas}}" url="{{ url('/admin/terapeuta/list') }}" cor="#f39c12" icone="body"></caixa>
             </div>
+            @endcan
         </div>
        </painel>         
         </div>

@@ -44,7 +44,7 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function
     Route::post('/terapeuta/create','TerapeutasController@create');
     Route::get('/terapeuta/{id}/editForm','TerapeutasController@editForm');
     Route::post('/terapeuta/{id}/edit','TerapeutasController@edit');
-    Route::get('/terapeuta/list','TerapeutasController@list');
+    Route::get('/terapeuta/list','TerapeutasController@list')->middleware('can:eUsuario');
     Route::get('/terapeuta/{id}/especialidades','TerapeutasController@especialidades');
     Route::get('/terapeuta/{id}/foto','TerapeutasController@foto');
     Route::post('/terapeuta/{id}/upload','TerapeutasController@upload')->name('terapeuta.upload');
