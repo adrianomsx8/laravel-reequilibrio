@@ -12,7 +12,12 @@ class TerapiasController extends Controller
 {
     public function index()
     {
-      return view('admin.terapias.index');
+        $listaMigalhas = json_encode([
+            ["titulo" => "Home", "url" => route('home')],
+            ["titulo" => "Listagem", "url" => '/admin/terapias'],
+            ["titulo" => "Criar", "url" => ""]
+        ]);
+      return view('admin.terapias.index', compact('listaMigalhas'));
     }
 
     public function create(TerapiasRequest $request)
@@ -21,29 +26,41 @@ class TerapiasController extends Controller
         $request->validated();
         Terapias::create( $data);
         flash('Registro inserido com sucesso')->success();
-        return redirect('/terapias/');
+        return redirect('/admin/terapias/');
 
     }
     
     public function list()
     {
-        $terapias = Terapias::all();
-        return view('admin.terapias.list', ['terapias' => $terapias]);
+        $terapias = Terapias::select('id', 'terapia','descricao')->paginate(10);
+        $listaMigalhas = json_encode([
+            ["titulo" => "Home", "url" => route('home')],
+            ["titulo" => "Listagem", "url" => ""]
+        ]);
+        return view('admin.terapias.list', compact('terapias','listaMigalhas'));
     }
 
-    public function editForm($id)
+    public function show($id){
+        return Terapias::find($id);
+     }
+
+    public function edit($id)
     {
+        $listaMigalhas = json_encode([
+            ["titulo" => "Home", "url" => route('home')],
+            ["titulo" => "Listagem", "url" => '/admin/terapias'],
+            ["titulo" => "Editar", "url" => ""]
+        ]);
         $terapia = Terapias::findOrFail($id);
-        return  view('admin.terapias.edit', ['terapia' => $terapia ]);
+        return  view('admin.terapias.edit', compact('terapia', 'listaMigalhas'));
     }
 
-    public function edit(TerapiasRequest $request, $id)
+    public function update(TerapiasRequest $request, $id)
     {
-
         $terapia = Terapias::findOrFail($id);
         $terapia->update($request->all());
         flash('Registro alterado com sucesso')->success();
-        return redirect('/terapias/');
+        return redirect('/admin/terapias/');
     }
 
     public function delete($id)
@@ -51,7 +68,7 @@ class TerapiasController extends Controller
         $terapia = Terapias::findOrFail($id);
         $terapia->delete();
         flash('Registro excluido com sucesso')->success();
-        return redirect('/terapias/');
+        return redirect('/admin/terapias/');
     }
 
     public function vincular($id)

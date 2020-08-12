@@ -19,35 +19,26 @@
         <tr v-for="(item, index) in lista" :key="item.id">
           <td v-for="i in item" :key="i.id">{{i}}</td>
           <td v-if="detalhe || editar || deletar">
-            <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar + item.id" method="post">
+            <span v-if="token">
+             <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar + item.id" method="post">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="token">
-               <a v-if="detalhe && !modal" v-bind:href="detalhe" class="btn btn-success btn-sm">Detalhe</a> 
                 <modal-link v-if="detalhe && modal" v-bind:item="item" v-bind:url="detalhe" tipo="button" nome="detalhe" titulo="Detalhe" css="btn btn-success btn-sm"></modal-link>   
    
-               <a   v-if="editar && !modal" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a>
+               <a   v-if="editar && !modal" v-bind:href="editar" class="btn btn-primary btn-sm">Editar</a>
                <modal-link v-if="editar && modal" v-bind:item="item" v-bind:url="editar" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>   
    
-              <!-- <a v-if="deletar" v-bind:href="deletar" class="btn btn-danger btn-sm" v-on:click="confirmar()">Deletar</a> --> 
                <a href="#" v-on:click="executaForm(index)"  class="btn btn-danger btn-sm">Deletar</a>
             </form>
+            </span>
             <span v-if="!token">
-                <a v-if="detalhe && !modal" v-bind:href="detalhe" class="btn btn-success btn-sm">Detalhe</a> 
-                <modal-link v-if="detalhe && modal" v-bind:item="item"  v-bind:url="detalhe" tipo="button" nome="detalhe" titulo="Detalhe" css="btn btn-success btn-sm"></modal-link>   
+                <modal-link v-if="detalhe" v-bind:item="item"  v-bind:url="detalhe" tipo="button" nome="detalhe" titulo="Detalhe" css="btn btn-success btn-sm"></modal-link>   
    
-                <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a>
+                <a v-if="editar && !modal" v-bind:href="editar + '/' +  item.id" class="btn btn-primary btn-sm">Editar </a>
                 <modal-link v-if="editar && modal"  v-bind:item="item" v-bind:url="editar" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>   
                 
-                <a v-if="deletar" v-bind:href="deletar" class="btn btn-danger btn-sm" v-on:click="confirmar()">Deletar</a>  
+                <a v-if="deletar" v-bind:href="deletar + '/' +  item.id" class="btn btn-danger btn-sm" v-on:click="confirmar()">Deletar</a>  
             </span>
-             <span v-if="token && !deletar">
-                <a v-if="detalhe && !modal" v-bind:href="detalhe" class="btn btn-success btn-sm">Detalhe</a> 
-                <modal-link v-if="detalhe && modal" v-bind:item="item" v-bind:url="detalhe" tipo="button" nome="detalhe" titulo="Detalhe" css="btn btn-success btn-sm"></modal-link>   
-   
-                <a v-if="editar && !modal" v-bind:href="editar" class="btn btn-primary btn-sm">Editar </a> 
-                <modal-link v-if="editar && modal"  v-bind:url="editar" v-bind:item="item" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>             
-             </span> 
-
            </td>
         </tr>
     </tbody>
@@ -70,7 +61,7 @@
            return confirm('Deseja Confirmar a  Exclusão?');
         },
         executaForm: function(index){     
-         document.getElementById(index).submit();
+           document.getElementById(index).submit();
         },
         ordenaColuna: function(coluna){
           this.ordemAuxCol = coluna;

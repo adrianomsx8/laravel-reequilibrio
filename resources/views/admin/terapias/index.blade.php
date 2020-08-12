@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <h1>Cadastro de terapias</h1>
-    <form action="/terapias/create" method="post">
-    {{ csrf_field() }}
+   <painel titulo="Cadastro de Terapias">
+   <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
+    <formulario id="formAdicionar" action="/admin/terapias/create" method="post" token="{{ csrf_token() }}">
     <p class="form-group">
             <label>Terapia:</label> 
             <input type="text" name="terapia" class="form-control @if($errors->has('terapia')) is-invalid @endif" value="{{old('terapia')}}">
@@ -32,8 +32,8 @@
                 </span>
             @endif
         </p>
-        <input type="submit" name="salvar" class="btn btn-primary btn-lg">
-
-    </form>
+        <!--<input type="submit" name="salvar" class="btn btn-primary btn-sm">-->
+    </formulario>
+    </painel>
 </div>
 @endsection

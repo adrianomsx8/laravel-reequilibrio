@@ -3,30 +3,25 @@
 @section('content')
 <div class="container">
 @include('flash::message')
-   <a href="/admin/terapias/index" class="btn btn-success btn-sm">Novo</a>
-    <h1>Listagem de terapias</h1>
-    <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Terapia</th>
-      <th scope="col">Descrição</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($terapias as $terapia)
-        <tr>
-        <th scope="row">{{ $terapia->id}}</th>
-        <td>{{ $terapia->terapia}}</td>
-        <td>{{ $terapia->descricao}}</td>
-        <td>
-        <a href="/admin/terapias/{{ $terapia->id}}/editForm" class="btn btn-primary btn-sm">Editar</a> 
-        <a href="admin/terapias/{{ $terapia->id}}/delete" class="btn btn-danger btn-sm"  onclick="return confirm('Confirmar Exclusão?')">Remover</a> 
-        </td>
-        </tr>
-    @endforeach
-  </tbody>
-</table>
+<painel titulo="Listagem de Terapias">  
+<migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
+    <tabela-lista 
+    v-bind:titulos="['#', 'Terapia', 'Descrição']"
+    v-bind:itens="{{json_encode($terapias)}}"
+    ordem="desc" ordemcol="1"
+    criar="/admin/terapias/index"  
+    editar="/admin/terapias/edit" deletar="/admin/terapias/delete"
+    >
+    </tabela-lista>
+    <!--  criar="#criar" detalhe="/admin/terapeuta/show/" editar="/admin/terapeuta/show/" deletar="/admin/terapeuta/deletar/" token="{{ csrf_token() }}"
+    modal="sim" -->
+    <div align="center">
+     {{$terapias->links()}}
+    </div>
+</painel>
+    <modal nome="detalhe" v-bind:titulo="$store.state.item.nome">
+        <strong> Nome:  </strong> @{{$store.state.item.terapia}} <br>
+        <strong> Descrição:  </strong> @{{$store.state.item.descricao}}
+    </modal>
 </div>
 @endsection

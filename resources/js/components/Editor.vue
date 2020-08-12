@@ -1,6 +1,8 @@
 <template>
     <div id="app">
-        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig"></ckeditor>
+        <ckeditor :editor="editor" v-model="editorData" :config="editorConfig">
+            zsxzx
+        </ckeditor>
     </div>
 </template>
 
@@ -8,6 +10,7 @@
     import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
     export default {
+          props: [ 'conteudo'],
         name: 'app',
         data() {
             return {

@@ -18,7 +18,7 @@ class TerapeutasController extends Controller
         $terapeutas = Terapeuta::select('id', 'nome','email')->paginate(2);
         $listaMigalhas = json_encode([
             ["titulo" => "Home", "url" => route('home')],
-            ["titulo" => "Listagen", "url" => ""]
+            ["titulo" => "Listagem", "url" => ""]
         ]);
         return  view('admin.terapeuta.list' , compact('terapeutas', 'listaMigalhas') );
     }

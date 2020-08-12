@@ -58,9 +58,10 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function
     Route::get('terapias/', 'TerapiasController@list');
     Route::get('terapias/index', 'TerapiasController@index');
     Route::post('terapias/create', 'TerapiasController@create');
-    Route::get('/terapias/{id}/editForm','TerapiasController@editForm');
-    Route::post('/terapias/{id}/edit','TerapiasController@edit');
-    Route::get('/terapias/{id}/delete','TerapiasController@delete');
+    Route::post('/terapias/{id}/update','TerapiasController@update');
+    Route::get('/terapias/edit/{id}','TerapiasController@edit');
+    Route::get('/terapias/delete/{id}','TerapiasController@delete');
+    Route::get('/terapias/show/{id}','TerapiasController@show');
 
     //Route::resource('Terapeutas', 'TerapeutasController');
 });

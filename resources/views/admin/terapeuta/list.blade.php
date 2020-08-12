@@ -9,15 +9,17 @@
     v-bind:titulos="['#', 'Terapeuta', 'E-mail']"
     v-bind:itens="{{json_encode($terapeutas)}}"
     ordem="desc" ordemcol="1"
-    criar="#criar" detalhe="/admin/terapeuta/show/" editar="/admin/terapeuta/show/" deletar="/admin/terapeuta/deletar/" token="{{ csrf_token() }}"
+     detalhe="/admin/terapeuta/show/"
     modal="sim"
     >
     </tabela-lista>
+    <!-- criar="#criar" detalhe="/admin/terapeuta/show/" editar="/admin/terapeuta/show/" deletar="/admin/terapeuta/deletar/" token="{{ csrf_token() }}"
+     -->
     <div align="center">
      {{$terapeutas->links()}}
     </div>
     </painel>
-    <modal nome="adicionar" titulo="Adicionar">
+    <!--<modal nome="adicionar" titulo="Adicionar">
         <formulario id="formAdicionar"css="" action="#" method="put" enctype="" token="{{ csrf_token() }}">      
           <campo label="E-mail" type="email" name="email" btn="btn btn-primary btn-sm"></campo>    
         </formulario>
@@ -29,7 +31,7 @@
         <input type="text" placeholder="E-mail" name="email" class="form-control" value="" v-model="$store.state.item.email">
       </formulario>
      <span slot="botoes"><input type="submit" form="formEdit" name="salvar" class="btn btn-primary"></span>      
-    </modal>
+    </modal>-->
 
     <modal nome="detalhe" v-bind:titulo="$store.state.item.nome">
         <strong> Nome:  </strong> @{{$store.state.item.nome}} <br>

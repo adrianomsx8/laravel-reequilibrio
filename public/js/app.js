@@ -3202,8 +3202,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['conteudo'],
   name: 'app',
   data: function data() {
     return {
@@ -3318,15 +3321,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3513,6 +3507,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -39984,16 +39979,20 @@ var render = function() {
     "div",
     { attrs: { id: "app" } },
     [
-      _c("ckeditor", {
-        attrs: { editor: _vm.editor, config: _vm.editorConfig },
-        model: {
-          value: _vm.editorData,
-          callback: function($$v) {
-            _vm.editorData = $$v
-          },
-          expression: "editorData"
-        }
-      })
+      _c(
+        "ckeditor",
+        {
+          attrs: { editor: _vm.editor, config: _vm.editorConfig },
+          model: {
+            value: _vm.editorData,
+            callback: function($$v) {
+              _vm.editorData = $$v
+            },
+            expression: "editorData"
+          }
+        },
+        [_vm._v("\n        zsxzx\n    ")]
+      )
     ],
     1
   )
@@ -40242,111 +40241,94 @@ var render = function() {
                 _vm._v(" "),
                 _vm.detalhe || _vm.editar || _vm.deletar
                   ? _c("td", [
-                      _vm.deletar && _vm.token
-                        ? _c(
-                            "form",
-                            {
-                              attrs: {
-                                id: index,
-                                action: _vm.deletar + item.id,
-                                method: "post"
-                              }
-                            },
-                            [
-                              _c("input", {
-                                attrs: {
-                                  type: "hidden",
-                                  name: "_method",
-                                  value: "DELETE"
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("input", {
-                                attrs: { type: "hidden", name: "_token" },
-                                domProps: { value: _vm.token }
-                              }),
-                              _vm._v(" "),
-                              _vm.detalhe && !_vm.modal
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-success btn-sm",
-                                      attrs: { href: _vm.detalhe }
-                                    },
-                                    [_vm._v("Detalhe")]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.detalhe && _vm.modal
-                                ? _c("modal-link", {
+                      _vm.token
+                        ? _c("span", [
+                            _vm.deletar && _vm.token
+                              ? _c(
+                                  "form",
+                                  {
                                     attrs: {
-                                      item: item,
-                                      url: _vm.detalhe,
-                                      tipo: "button",
-                                      nome: "detalhe",
-                                      titulo: "Detalhe",
-                                      css: "btn btn-success btn-sm"
+                                      id: index,
+                                      action: _vm.deletar + item.id,
+                                      method: "post"
                                     }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.editar && !_vm.modal
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-primary btn-sm",
-                                      attrs: { href: _vm.editar }
-                                    },
-                                    [_vm._v("Editar ")]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.editar && _vm.modal
-                                ? _c("modal-link", {
-                                    attrs: {
-                                      item: item,
-                                      url: _vm.editar,
-                                      tipo: "button",
-                                      nome: "editar",
-                                      titulo: "Editar",
-                                      css: ""
-                                    }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c(
-                                "a",
-                                {
-                                  staticClass: "btn btn-danger btn-sm",
-                                  attrs: { href: "#" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.executaForm(index)
-                                    }
-                                  }
-                                },
-                                [_vm._v("Deletar")]
-                              )
-                            ],
-                            1
-                          )
+                                  },
+                                  [
+                                    _c("input", {
+                                      attrs: {
+                                        type: "hidden",
+                                        name: "_method",
+                                        value: "DELETE"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("input", {
+                                      attrs: { type: "hidden", name: "_token" },
+                                      domProps: { value: _vm.token }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm.detalhe && _vm.modal
+                                      ? _c("modal-link", {
+                                          attrs: {
+                                            item: item,
+                                            url: _vm.detalhe,
+                                            tipo: "button",
+                                            nome: "detalhe",
+                                            titulo: "Detalhe",
+                                            css: "btn btn-success btn-sm"
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.editar && !_vm.modal
+                                      ? _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "btn btn-primary btn-sm",
+                                            attrs: { href: _vm.editar }
+                                          },
+                                          [_vm._v("Editar")]
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _vm.editar && _vm.modal
+                                      ? _c("modal-link", {
+                                          attrs: {
+                                            item: item,
+                                            url: _vm.editar,
+                                            tipo: "button",
+                                            nome: "editar",
+                                            titulo: "Editar",
+                                            css: ""
+                                          }
+                                        })
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn btn-danger btn-sm",
+                                        attrs: { href: "#" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.executaForm(index)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Deletar")]
+                                    )
+                                  ],
+                                  1
+                                )
+                              : _vm._e()
+                          ])
                         : _vm._e(),
                       _vm._v(" "),
                       !_vm.token
                         ? _c(
                             "span",
                             [
-                              _vm.detalhe && !_vm.modal
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-success btn-sm",
-                                      attrs: { href: _vm.detalhe }
-                                    },
-                                    [_vm._v("Detalhe")]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
                               _vm.detalhe && _vm.modal
                                 ? _c("modal-link", {
                                     attrs: {
@@ -40365,7 +40347,9 @@ var render = function() {
                                     "a",
                                     {
                                       staticClass: "btn btn-primary btn-sm",
-                                      attrs: { href: _vm.editar }
+                                      attrs: {
+                                        href: _vm.editar + "/" + item.id
+                                      }
                                     },
                                     [_vm._v("Editar ")]
                                   )
@@ -40389,7 +40373,9 @@ var render = function() {
                                     "a",
                                     {
                                       staticClass: "btn btn-danger btn-sm",
-                                      attrs: { href: _vm.deletar },
+                                      attrs: {
+                                        href: _vm.deletar + "/" + item.id
+                                      },
                                       on: {
                                         click: function($event) {
                                           return _vm.confirmar()
@@ -40398,62 +40384,6 @@ var render = function() {
                                     },
                                     [_vm._v("Deletar")]
                                   )
-                                : _vm._e()
-                            ],
-                            1
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.token && !_vm.deletar
-                        ? _c(
-                            "span",
-                            [
-                              _vm.detalhe && !_vm.modal
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-success btn-sm",
-                                      attrs: { href: _vm.detalhe }
-                                    },
-                                    [_vm._v("Detalhe")]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.detalhe && _vm.modal
-                                ? _c("modal-link", {
-                                    attrs: {
-                                      item: item,
-                                      url: _vm.detalhe,
-                                      tipo: "button",
-                                      nome: "detalhe",
-                                      titulo: "Detalhe",
-                                      css: "btn btn-success btn-sm"
-                                    }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.editar && !_vm.modal
-                                ? _c(
-                                    "a",
-                                    {
-                                      staticClass: "btn btn-primary btn-sm",
-                                      attrs: { href: _vm.editar }
-                                    },
-                                    [_vm._v("Editar ")]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.editar && _vm.modal
-                                ? _c("modal-link", {
-                                    attrs: {
-                                      url: _vm.editar,
-                                      item: item,
-                                      tipo: "button",
-                                      nome: "editar",
-                                      titulo: "Editar",
-                                      css: ""
-                                    }
-                                  })
                                 : _vm._e()
                             ],
                             1
@@ -40582,7 +40512,12 @@ var render = function() {
           })
         : _vm._e(),
       _vm._v(" "),
-      _vm._t("default")
+      _vm._t("default"),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "btn btn-primary btn-sm",
+        attrs: { type: "submit", name: "salvar" }
+      })
     ],
     2
   )
