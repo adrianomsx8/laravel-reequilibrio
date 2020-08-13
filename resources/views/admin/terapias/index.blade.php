@@ -2,38 +2,27 @@
 
 @section('content')
 <div class="container">
-   <painel titulo="Cadastro de Terapias">
-   <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
-    <formulario id="formAdicionar" action="/admin/terapias/create" method="post" token="{{ csrf_token() }}">
-    <p class="form-group">
-            <label>Terapia:</label> 
-            <input type="text" name="terapia" class="form-control @if($errors->has('terapia')) is-invalid @endif" value="{{old('terapia')}}">
-            @if($errors->has('terapia'))
-               <span class="invalid-feedback"> 
-                    <strong>{{$errors->first('terapia') }} </strong>
-                </span>
-            @endif
-        </p>
-        <p class="form-group">
-            <label>Foto:</label> 
-            <input type="text" name="foto" class="form-control @if($errors->has('foto')) is-invalid @endif" value="{{old('foto')}}">
-            @if($errors->has('foto'))
-               <span class="invalid-feedback"> 
-                    <strong>{{$errors->first('foto') }} </strong>
-                </span>
-            @endif
-        </p>
-        <p class="form-group">
-            <label>Descrição:</label> 
-            <textarea name="descricao" class="form-control @if($errors->has('descricao')) is-invalid @endif" cols="30" rows="5">{{old('descricao')}}</textarea>
-            @if($errors->has('descricao'))
-               <span class="invalid-feedback"> 
-                    <strong>{{$errors->first('descricao') }} </strong>
-                </span>
-            @endif
-        </p>
-        <!--<input type="submit" name="salvar" class="btn btn-primary btn-sm">-->
-    </formulario>
-    </painel>
+@include('flash::message')
+<painel titulo="Listagem de Terapias">  
+<migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
+    <tabela-lista 
+    v-bind:titulos="['#', 'Terapia', 'Descrição']"
+    v-bind:itens="{{json_encode($terapias)}}"
+    ordem="desc" ordemcol="1"
+    criar="/admin/terapias/create"  
+    editar="/admin/terapias/edit" deletar="/admin/terapias/destroy/"
+    
+    >
+    </tabela-lista>
+    <!--  criar="#criar" detalhe="/admin/terapeuta/show/" editar="/admin/terapeuta/show/" deletar="/admin/terapeuta/deletar/" token="{{ csrf_token() }}"
+    modal="sim" -->
+    <div align="center">
+     {{$terapias->links()}}
+    </div>
+</painel>
+    <modal nome="detalhe" v-bind:titulo="$store.state.item.nome">
+        <strong> Nome:  </strong> @{{$store.state.item.terapia}} <br>
+        <strong> Descrição:  </strong> @{{$store.state.item.descricao}}
+    </modal>
 </div>
 @endsection

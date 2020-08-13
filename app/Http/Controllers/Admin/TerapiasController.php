@@ -10,65 +10,67 @@ use App\Especialidades;
 
 class TerapiasController extends Controller
 {
+
     public function index()
-    {
-        $listaMigalhas = json_encode([
-            ["titulo" => "Home", "url" => route('home')],
-            ["titulo" => "Listagem", "url" => '/admin/terapias'],
-            ["titulo" => "Criar", "url" => ""]
-        ]);
-      return view('admin.terapias.index', compact('listaMigalhas'));
-    }
-
-    public function create(TerapiasRequest $request)
-    {
-        $data = $request->all();
-        $request->validated();
-        Terapias::create( $data);
-        flash('Registro inserido com sucesso')->success();
-        return redirect('/admin/terapias/');
-
-    }
-    
-    public function list()
     {
         $terapias = Terapias::select('id', 'terapia','descricao')->paginate(10);
         $listaMigalhas = json_encode([
             ["titulo" => "Home", "url" => route('home')],
             ["titulo" => "Listagem", "url" => ""]
         ]);
-        return view('admin.terapias.list', compact('terapias','listaMigalhas'));
+        return view('admin.terapias.index', compact('terapias','listaMigalhas'));
+    }
+
+    public function create()
+    {    
+      $listaMigalhas = json_encode([
+            ["titulo" => "Home", "url" => route('home')],
+            ["titulo" => "Listagem", "url" => '/admin/terapias/index'],
+            ["titulo" => "Criar", "url" => ""]
+        ]);
+      return view('admin.terapias.create', compact('listaMigalhas'));
+    }
+
+    public function store(TerapiasRequest $request)
+    {
+        $data = $request->all();
+        $request->validated();
+        Terapias::create( $data);
+        flash('Registro inserido com sucesso')->success();
+        return redirect('/admin/terapias/index');
     }
 
     public function show($id){
         return Terapias::find($id);
      }
 
-    public function edit($id)
-    {
-        $listaMigalhas = json_encode([
-            ["titulo" => "Home", "url" => route('home')],
-            ["titulo" => "Listagem", "url" => '/admin/terapias'],
-            ["titulo" => "Editar", "url" => ""]
-        ]);
-        $terapia = Terapias::findOrFail($id);
-        return  view('admin.terapias.edit', compact('terapia', 'listaMigalhas'));
-    }
+     public function edit($id)
+     {
+         $listaMigalhas = json_encode([
+             ["titulo" => "Home", "url" => route('home')],
+             ["titulo" => "Listagem", "url" => '/admin/terapias/index'],
+             ["titulo" => "Editar", "url" => ""]
+         ]);
+         $terapia = Terapias::findOrFail($id);
+         return  view('admin.terapias.edit', compact('terapia', 'listaMigalhas'));
+     }
 
+     
     public function update(TerapiasRequest $request, $id)
     {
         $terapia = Terapias::findOrFail($id);
         $terapia->update($request->all());
         flash('Registro alterado com sucesso')->success();
-        return redirect('/admin/terapias/');
+        return redirect('/admin/terapias/index');
     }
 
-    public function delete($id)
+    
+    public function destroy($id)
     {
         $terapia = Terapias::findOrFail($id);
         $terapia->delete();
         flash('Registro excluido com sucesso')->success();
-        return redirect('/admin/terapias/');
+        return redirect('/admin/terapias/index');
     }
 
     public function vincular($id)

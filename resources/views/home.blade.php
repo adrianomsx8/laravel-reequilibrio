@@ -33,7 +33,7 @@
               <caixa titulo="Usuários" url="{{ url('/admin/usuarios') }}" contador="{{$total_usuarios}}" cor="#00a65a" icone="people"></caixa>
             </div>
             <div class="col-5" >
-              <caixa titulo="Especialidades" url="{{ url('/admin/terapias') }}" contador="{{$total_terapias}}" cor="#00c0ef" icone="medkit"></caixa>
+              <caixa titulo="Especialidades" url="{{ url('/admin/terapias/index') }}" contador="{{$total_terapias}}" cor="#00c0ef" icone="medkit"></caixa>
             </div>
             @can('eUsuario')
             <div class="col-5" >

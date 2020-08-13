@@ -19,26 +19,19 @@
         <tr v-for="(item, index) in lista" :key="item.id">
           <td v-for="i in item" :key="i.id">{{i}}</td>
           <td v-if="detalhe || editar || deletar">
-            <span v-if="token">
-             <form v-bind:id="index" v-if="deletar && token" v-bind:action="deletar + item.id" method="post">
-              <input type="hidden" name="_method" value="DELETE">
-              <input type="hidden" name="_token" v-bind:value="token">
-                <modal-link v-if="detalhe && modal" v-bind:item="item" v-bind:url="detalhe" tipo="button" nome="detalhe" titulo="Detalhe" css="btn btn-success btn-sm"></modal-link>   
-   
-               <a   v-if="editar && !modal" v-bind:href="editar" class="btn btn-primary btn-sm">Editar</a>
-               <modal-link v-if="editar && modal" v-bind:item="item" v-bind:url="editar" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>   
-   
-               <a href="#" v-on:click="executaForm(index)"  class="btn btn-danger btn-sm">Deletar</a>
-            </form>
-            </span>
-            <span v-if="!token">
-                <modal-link v-if="detalhe" v-bind:item="item"  v-bind:url="detalhe" tipo="button" nome="detalhe" titulo="Detalhe" css="btn btn-success btn-sm"></modal-link>   
-   
+ 
+            <form v-bind:id="index"  v-bind:action="deletar + item.id" method="post">
+               <input type="hidden" name="_method" value="DELETE">
+               <input type="hidden" name="_token"  v-model="token"> 
+
+                <modal-link v-if="detalhe && modal" v-bind:item="item"  v-bind:url="detalhe" tipo="button" nome="detalhe" titulo="Detalhe" css="btn btn-success btn-sm"></modal-link>   
+    
                 <a v-if="editar && !modal" v-bind:href="editar + '/' +  item.id" class="btn btn-primary btn-sm">Editar </a>
                 <modal-link v-if="editar && modal"  v-bind:item="item" v-bind:url="editar" tipo="button" nome="editar" titulo="Editar" css=""></modal-link>   
-                
-                <a v-if="deletar" v-bind:href="deletar + '/' +  item.id" class="btn btn-danger btn-sm" v-on:click="confirmar()">Deletar</a>  
-            </span>
+             
+               <button v-on:click="executaForm(index)" v-if="deletar && !modal" class="btn btn-danger btn-sm">Deletar</button>              
+            </form> 
+
            </td>
         </tr>
     </tbody>
@@ -48,20 +41,20 @@
 
 <script>
     export default {
-     props:['titulos', 'itens', 'ordem', 'ordemcol','criar', 'detalhe', 'editar', 'deletar', 'token', 'modal'],
+     props:['titulos', 'itens', 'ordem', 'ordemcol','criar', 'detalhe', 'editar', 'deletar', 'modal'],
      data: function(){
          return {
             buscar: '',
             ordemAux: this.ordem || "asc",
-            ordemAuxCol: this.ordemcol || 0
+            ordemAuxCol: this.ordemcol || 0,
+            token : $('meta[name="csrf-token"]').attr('content')
          }
      },
      methods:{
-        confirmar: function (){
-           return confirm('Deseja Confirmar a  Exclusão?');
-        },
-        executaForm: function(index){     
+        executaForm: function(index){ 
+          if (window.confirm("Confirmar Exclusão?")) { 
            document.getElementById(index).submit();
+          }         
         },
         ordenaColuna: function(coluna){
           this.ordemAuxCol = coluna;

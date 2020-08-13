@@ -55,13 +55,18 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function
     Route::delete('/terapeuta/deletar/{id}','TerapeutasController@deletar');
 
     /***** TERAPIAS  */
-    Route::get('terapias/', 'TerapiasController@list');
     Route::get('terapias/index', 'TerapiasController@index');
-    Route::post('terapias/create', 'TerapiasController@create');
-    Route::post('/terapias/{id}/update','TerapiasController@update');
-    Route::get('/terapias/edit/{id}','TerapiasController@edit');
-    Route::get('/terapias/delete/{id}','TerapiasController@delete');
+    Route::get('terapias/create', 'TerapiasController@create');
+    Route::post('terapias/store', 'TerapiasController@store');
     Route::get('/terapias/show/{id}','TerapiasController@show');
+    Route::get('/terapias/edit/{id}','TerapiasController@edit');
+    Route::put('/terapias/{id}/update','TerapiasController@update');
+    Route::delete('/terapias/destroy/{id}','TerapiasController@destroy');
+
+   /* Route::resources([
+        'terapias' => 'TerapiasController',
+        'usuarios' => 'UsersController',
+    ]);*/
 
     //Route::resource('Terapeutas', 'TerapeutasController');
 });
