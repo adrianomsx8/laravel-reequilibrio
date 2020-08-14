@@ -31,14 +31,6 @@ Route::get('/terapeuta/detalhar/{id}', function($id){
 
 Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function(){
 
-    /***** USUÁRIOS  */
-    Route::get('/usuarios','UsersController@index');
-    Route::post('/usuarios','UsersController@create');
-    Route::get('/usuarios/{id}/delete','UsersController@delete');
-    Route::get('/usuarios/{id}/edit','UsersController@editForm');
-    Route::post('/usuarios/{id}','UsersController@edit');
-    //Route::resource('/usuarios', 'UsersController');
-
     /** TERAPEUTAS */
     Route::get('/terapeuta','TerapeutasController@index');
     Route::post('/terapeuta/create','TerapeutasController@create');
@@ -62,6 +54,15 @@ Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function
     Route::get('/terapias/edit/{id}','TerapiasController@edit');
     Route::put('/terapias/{id}/update','TerapiasController@update');
     Route::delete('/terapias/destroy/{id}','TerapiasController@destroy');
+
+    /***** USUÁRIOS  */
+    Route::get('/usuarios/index','UsersController@index');
+    Route::get('usuarios/create', 'UsersController@create');
+    Route::post('usuarios/store', 'UsersController@store');
+    Route::get('/usuarios/show/{id}','UsersController@show');
+    Route::get('/usuarios/edit/{id}','UsersController@edit');
+    Route::put('/usuarios/{id}/update','UsersController@update');
+    Route::delete('/usuarios/destroy/{id}','UsersController@destroy');
 
    /* Route::resources([
         'terapias' => 'TerapiasController',

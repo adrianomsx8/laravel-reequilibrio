@@ -30,7 +30,7 @@
         <strong>Usuário administrador</strong> <br>
         <div class="row">      
            <div class="col-5" >
-              <caixa titulo="Usuários" url="{{ url('/admin/usuarios') }}" contador="{{$total_usuarios}}" cor="#00a65a" icone="people"></caixa>
+              <caixa titulo="Usuários" url="{{ url('/admin/usuarios/index') }}" contador="{{$total_usuarios}}" cor="#00a65a" icone="people"></caixa>
             </div>
             <div class="col-5" >
               <caixa titulo="Especialidades" url="{{ url('/admin/terapias/index') }}" contador="{{$total_terapias}}" cor="#00c0ef" icone="medkit"></caixa>
