@@ -3146,7 +3146,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulo', 'url', 'cor', 'icone', 'contador'],
   computed: {
@@ -39933,7 +39932,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "small-box", style: _vm.defineCor }, [
     _c("div", { staticClass: "inner" }, [
-      _c("h3", [_vm._v("#"), _vm._v(" " + _vm._s(_vm.contador))]),
+      _c("h3", [_vm._v("# " + _vm._s(_vm.contador))]),
       _vm._v(" "),
       _c("p")
     ]),
@@ -39947,7 +39946,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("a", { staticClass: "small-box-footer", attrs: { href: "#" } }, [
+    _c("a", { staticClass: "small-box-footer", attrs: { href: _vm.url } }, [
       _vm._v("\n           " + _vm._s(_vm.titulo) + " "),
       _c("i", { staticClass: "fa fa-arrow-circle-right" })
     ])

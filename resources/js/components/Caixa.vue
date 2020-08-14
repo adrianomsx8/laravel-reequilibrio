@@ -1,14 +1,13 @@
 <template>
         <div class="small-box" v-bind:style="defineCor" >
             <div class="inner">
-              <h3>#</ion-icon> {{contador}}</h3>
-
+              <h3># {{contador}}</h3>
               <p></p>
             </div>
             <div class="icon">
              <a v-bind:href="url"><ion-icon v-bind:name="icone" ></ion-icon></a>
             </div>
-            <a href="#" class="small-box-footer">
+            <a v-bind:href="url" class="small-box-footer">
                {{titulo}} <i class="fa fa-arrow-circle-right"></i>
             </a>
     </div>
