@@ -35,27 +35,18 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                   @auth
-                    <!--<ul class="navbar-nav mr-auto">
-                       <li>
-                         <a href="" class="nav-link">Inicio</a>
-                       </li>
-                    </ul>-->
-                   @endauth
-                   <!-- <div class="flex-center position-ref full-height">
-                    @if (Route::has('login'))
-                        <div class="top-right links">
-                            @auth
-                                <a href="{{ url('/home') }}">Home</a>
-                            @else
-                                <a href="{{ route('login') }}">Login</a>
-
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}">Criar Conta</a>
-                                @endif
-                            @endauth
-                        </div>
-                    @endif-->
+                    <ul class="navbar-nav mr-auto">
+                      <li><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+                      <li><a href="{{ url('/terapeutas') }}" class="nav-link">Terapeutas</a></li>
+                      <li><a href="#" class="nav-link">Cursos</a></li>
+                      <li><a href="#" class="nav-link">Eventos</a></li>
+                      <li><a href="#" class="nav-link">Blog</a></li>
+                      <li><a href="#" class="nav-link">Contato</a></li>
+                      @auth
+                      <li><a href="#" class="nav-link">Perfil</a></li>
+                      @endauth
+                    </ul>
+                 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
