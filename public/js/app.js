@@ -8096,7 +8096,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.container img {\r\n    max-width:200px;\r\n    max-height:150px;\r\n    width: 200px;\r\n    height: 150px;\r\n     -o-object-fit: fill;\r\n        object-fit: fill;\n}\r\n", ""]);
+exports.push([module.i, "\n.container img {\r\n    max-width:200px;\r\n    max-height:150px;\r\n    width: 200px;\r\n    height: 150px;\r\n    -o-object-fit: contain;\r\n       object-fit: contain;\n}\r\n", ""]);
 
 // exports
 
@@ -39977,7 +39977,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "card col-sm-6 col-md-4", staticStyle: { width: "18rem" } },
+    { staticClass: "card col-sm-5 col-md-3", staticStyle: { width: "15rem" } },
     [
       _c("img", {
         staticClass: "img-thumbnail img-fluid rounded",
@@ -39989,9 +39989,11 @@ var render = function() {
         _vm._v(" "),
         _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.descricao))]),
         _vm._v(" "),
-        _c("a", { staticClass: "card-link", attrs: { href: _vm.detalhar } }, [
-          _vm._v("Detalhar")
-        ])
+        _c(
+          "a",
+          { staticClass: "btn btn-primary", attrs: { href: _vm.detalhar } },
+          [_vm._v("Detalhar")]
+        )
       ])
     ]
   )
