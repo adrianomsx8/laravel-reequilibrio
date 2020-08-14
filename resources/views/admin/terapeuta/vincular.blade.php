@@ -2,19 +2,17 @@
 
 @section('content')
 <div class="container">
-    <h1>Vincular de especialidades</h1>
-    <hr>
-    <form action="{{route('terapeuta.vincularSave', ['id' => $id])}}" method="post">
-        {{ csrf_field() }}    
-        <div class="row">
+    <painel titulo="Vincular Especialidades">
+    <formulario action="{{route('terapeuta.vincularSave', ['id' => $id])}}" method="post"> 
             @foreach($terapias as $t)
-            <div class="col-4" >
-               <input type="checkbox" name="terapia[]" value="{{$t->id}}"> {{$t->terapia}} 
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="terapia[]" value="{{$t->id}}" id="defaultCheck1">
+              <label class="form-check-label" for="defaultCheck1">
+              {{$t->terapia}} 
+            </label>
             </div>
             @endforeach
-        </div>
-
-        <input type="submit" name="salvar" class="btn btn-success">
-    </form>
+    </formulario>
+    </painel>
 </div>
 @endsection

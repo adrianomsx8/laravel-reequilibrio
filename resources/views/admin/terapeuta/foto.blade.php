@@ -2,19 +2,18 @@
 
 @section('content')
 <div class="container">
-    <h1>Adicionar foto</h1>
-    <form action="{{route('terapeuta.upload', ['id' => $id])}}" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}    
-        <p class="form-group">
-            <label>Foto:</label> 
-            <input type="file" name="foto"  class="form-control @if($errors->has('foto')) is-invalid @endif" value="">
-            @if($errors->has('foto'))
+    <painel titulo="Adicionar foto">
+    <formulario action="{{route('terapeuta.upload', ['id' => $id])}}" method="post" enctype="multipart/form-data">   
+        <div class="custom-file">
+        <input type="file" name="foto" class="custom-file-input @if($errors->has('foto')) is-invalid @endif" id="customFile">
+        <label class="custom-file-label" for="customFile">Escolha uma foto</label>
+        @if($errors->has('foto'))
                <span class="invalid-feedback"> 
                     <strong>{{$errors->first('foto') }} </strong>
                 </span>
             @endif
-        </p>
-        <input type="submit" name="salvar" class="btn btn-primary btn-lg">
-    </form>
+        </div>
+    </formulario>
+    </painel>
 </div>
 @endsection

@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>{{ env('APP_NAME') }}</title>
+@section('content')
+ <div class="content">
+    <div class="title m-b-md">
+        Projeto Reequilibrio
+    </div>
+    <div class="links">
+        <a href="{{ url('/terapeutas') }}">Terapeutas</a>
+        <a href="#">Cursos</a>
+        <a href="#">Eventos</a>             
+        <a href="#">Blog</a>
+        <a href="#">Contato</a>
+    </div>
+  </div>
+@endsection
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
+            <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
@@ -61,36 +66,4 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Criar Conta</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                     Projeto Reequilibrio
-                </div>
-                <div class="links">
-                    <a href="{{ url('/terapeutas') }}">Terapeutas</a>
-                    <a href="#">Cursos</a>
-                    <a href="#">Eventos</a>             
-                    <a href="#">Blog</a>
-                    <a href="#">Contato</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+        </style>    

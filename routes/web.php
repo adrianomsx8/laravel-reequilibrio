@@ -30,23 +30,23 @@ Route::get('/terapeuta/detalhar/{id}', function($id){
 })->name('detalhar');
 
 Route::middleware(['auth'])->prefix('admin')->namespace('Admin')->group(function(){
-
-    /** TERAPEUTAS */
-    Route::get('/terapeuta','TerapeutasController@index');
-    Route::post('/terapeuta/create','TerapeutasController@create');
-    Route::get('/terapeuta/{id}/editForm','TerapeutasController@editForm');
-    Route::post('/terapeuta/{id}/edit','TerapeutasController@edit');
-    Route::get('/terapeuta/list','TerapeutasController@list')->middleware('can:eUsuario');
-    Route::get('/terapeuta/{id}/especialidades','TerapeutasController@especialidades');
-    Route::get('/terapeuta/{id}/foto','TerapeutasController@foto');
-    Route::post('/terapeuta/{id}/upload','TerapeutasController@upload')->name('terapeuta.upload');
+    /***** TERAPEUTAS ******/
+    Route::get('/terapeuta/index','TerapeutasController@index'); 
+    Route::get('/terapeuta/create','TerapeutasController@create');
+    Route::post('/terapeuta/store','TerapeutasController@store');
+    Route::get('/terapeuta/show/{id}','TerapeutasController@show');
+    Route::get('/terapeuta/edit/{id}','TerapeutasController@edit');
+    Route::put('/terapeuta/{id}/update','TerapeutasController@update');
+    Route::delete('/terapeuta/destroy/{id}','TerapeutasController@destroy');
+    /***** VINCULAR ESPECIALIDADES AO TERAPEUTA ******/
     Route::get('terapeuta/{id}/vincular', 'TerapiasController@vincular')->name('terapeuta.vincular');
     Route::post('terapeuta/{id}/vincularSave', 'TerapiasController@vincularSave')->name('terapeuta.vincularSave');
-    Route::get('/terapeuta/show/{id}','TerapeutasController@show');
-    Route::put('/terapeuta/editar/{id}','TerapeutasController@editar');
-    Route::delete('/terapeuta/deletar/{id}','TerapeutasController@deletar');
-
-    /***** TERAPIAS  */
+    Route::get('/terapeuta/{id}/especialidades','TerapeutasController@especialidades');
+    /***** ADICIONAR FOTO AO PERFIL DO TERAPEUTA ******/
+    Route::get('/terapeuta/{id}/foto','TerapeutasController@foto');
+    Route::post('/terapeuta/{id}/upload','TerapeutasController@upload')->name('terapeuta.upload');
+    
+    /***** ESPECIALIDADES  */
     Route::get('terapias/index', 'TerapiasController@index');
     Route::get('terapias/create', 'TerapiasController@create');
     Route::post('terapias/store', 'TerapiasController@store');

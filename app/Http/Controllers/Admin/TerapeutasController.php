@@ -14,21 +14,22 @@ use App\Terapeuta;
 class TerapeutasController extends Controller
 {
     
-    public function list(){
+    public function index(){
         $terapeutas = Terapeuta::select('id', 'nome','email')->paginate(2);
         $listaMigalhas = json_encode([
             ["titulo" => "Home", "url" => route('home')],
             ["titulo" => "Listagem", "url" => ""]
         ]);
-        return  view('admin.terapeuta.list' , compact('terapeutas', 'listaMigalhas') );
+        return  view('admin.terapeuta.index' , compact('terapeutas', 'listaMigalhas') );
     }
 
-    public function index()
-    {
-       return view('admin.terapeuta.index', ['user' => Auth::user()]);
+    public function create()
+    { 
+      $user =   Auth::user();
+      return view('admin.terapeuta.create', compact('user'));
     }
-
-    public function create(TerapeutaRequest $request)
+   
+    public function store(TerapeutaRequest $request)
     {
         $data = $request->all(); 
         $data['user_id'] =  Auth::user()->id;
@@ -38,13 +39,17 @@ class TerapeutasController extends Controller
         return redirect('/home');
     }
 
-    public function editForm($id)
+    public function show($id){
+        return Terapeuta::find($id);
+     }
+
+    public function edit($id)
     {
         $terapeuta = Terapeuta::find($id);
-        return view('admin.terapeuta.edit', ['terapeuta' => $terapeuta ]);
+        return view('admin.terapeuta.edit', compact('terapeuta'));
     }
 
-    public function edit(TerapeutaRequest $request , $id)
+    public function update(TerapeutaRequest $request , $id)
     {
         $terapeuta = Terapeuta::findOrFail($id);
         $terapeuta->update($request->all());
@@ -52,27 +57,23 @@ class TerapeutasController extends Controller
         return redirect('/home');
     }
 
+    public function destroy($id)
+    {
+        $terapia = Terapeuta::findOrFail($id);
+        $terapia->delete();
+        flash('Registro excluido com sucesso')->success();
+        return redirect('/home');
+    }
+
+
     public function especialidades($id)
     {
         $terapeuta = Terapeuta::find($id);
         return view('admin.terapeuta.especialidades', compact('terapeuta'));
     }
 
-    public function show($id){
-       return Terapeuta::find($id);
-    }
-
-    public function editar(Request $request, $id){
-       dd($request, $id);
-    }
-
-    public function deletar($id){
-      dd($id);
-    }
-
     public function foto($id)
     {
-        //print phpinfo();
         return view('admin.terapeuta.foto',  compact('id'));
     }
 

@@ -36,12 +36,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                    @auth
-                    <ul class="navbar-nav mr-auto">
+                    <!--<ul class="navbar-nav mr-auto">
                        <li>
                          <a href="" class="nav-link">Inicio</a>
                        </li>
-                    </ul>
+                    </ul>-->
                    @endauth
+                   <!-- <div class="flex-center position-ref full-height">
+                    @if (Route::has('login'))
+                        <div class="top-right links">
+                            @auth
+                                <a href="{{ url('/home') }}">Home</a>
+                            @else
+                                <a href="{{ route('login') }}">Login</a>
+
+                                @if (Route::has('register'))
+                                    <a href="{{ route('register') }}">Criar Conta</a>
+                                @endif
+                            @endauth
+                        </div>
+                    @endif-->
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -61,12 +75,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a href="{{ url('/home') }}" class="dropdown-item">Administração</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
