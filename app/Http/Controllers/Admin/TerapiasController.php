@@ -75,23 +75,38 @@ class TerapiasController extends Controller
 
     public function vincular($id)
     {
+       $terapeuta_especialidades = Especialidades::where('terapeuta_id', '=', $id)->get();
+
+        $especialidades = array();
+        foreach($terapeuta_especialidades as $value){
+            $especialidades[] = $value->terapia_id;      
+        }
+       $especialidades = json_encode($especialidades);  
        $terapias = Terapias::all();
-       return view('admin.terapeuta.vincular',['terapias' => $terapias , 'id'=> $id]);
+       return view('admin.terapeuta.vincular',compact('terapias', 'id',  'especialidades'));      
     }
 
     public function vincularSave(Request $request, $id)
     {
-       $terapias = $request->all()['terapia'];
-       $data = date('Y-m-d h:i:s');
+        try{      
+            Especialidades::deleteifExists($id);
 
-       foreach($terapias as $t){
-         Especialidades::create([
-             'terapeuta_id' => $id,
-             'terapia_id' => $t
-            ]
-         );
-       }
-       flash('Vinculo criado com sucesso')->success();
-       return redirect('/home/');
+            $terapias = $request->all()['terapia'];
+            $data = date('Y-m-d h:i:s');
+
+            foreach($terapias as $t){
+            Especialidades::create([
+                'terapeuta_id' => $id,
+                'terapia_id' => $t
+                ]
+            );
+           }
+           flash('Vinculo criado com sucesso')->success();
+           return redirect('/home/');
+
+        }catch(Throwable $e){
+            report($e);
+            return false;
+        } 
     }
 }

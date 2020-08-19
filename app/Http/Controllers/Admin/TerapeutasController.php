@@ -84,7 +84,10 @@ class TerapeutasController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {   
+                  
             $path = $request->foto->store('public/images');
+            
+
             $image_name = substr($path, 14);
             
             $terapeuta = Terapeuta::findOrFail($id);         

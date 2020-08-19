@@ -17,4 +17,14 @@ class Especialidades extends Pivot
    {
        return $this->belongsToMany(Terapeuta::class);
    }
+
+   public static function consultar($id){
+    return Especialidades::where('terapeuta_id' , '=', $id);
+   }
+   public static function deleteifExists($id){
+    $especialidade = Especialidades::where('terapeuta_id' , '=', $id);
+    if($especialidade->count() > 0){
+        $especialidade->delete();
+    }
+   }
 }
