@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 
 use App\Terapeuta;
+use App\TerapeutaFoto;
 
 class TerapeutasController extends Controller
 {
@@ -83,7 +84,11 @@ class TerapeutasController extends Controller
             'foto' => 'required|image|mimes:jpeg,png,jpg,',
         ]);
 
-        if ($request->hasFile('foto')) {   
+        try{  
+          if ($request->hasFile('foto')) {
+
+            $path = $request->foto->store('public/images');
+            TerapeutaFoto::deleteifExists($id);
                   
             $path = $request->foto->store('public/images');
             
@@ -94,8 +99,15 @@ class TerapeutasController extends Controller
             $terapeuta->fotos()->create([
                 'foto' =>  $image_name           
             ]);
+            
+
             flash('foto inserida com sucesso')->success();
             return redirect('/home');
-        }
+          }
+
+        }catch(Throwable $e){
+            report($e);
+            return false;
+        } 
     }
 }
