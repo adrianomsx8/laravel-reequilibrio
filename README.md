@@ -8,7 +8,8 @@ PHP 7.4 <br/>
 <strong>Banco:</strong> PostgreSQL <br/>
 Twitter Bootstrap 4.3.1 <br/>
 Vue Js 2.5.17<br/>
-ionicons 5.1.2
+ionicons 5.1.2<br/>
+PHPUnit 8.3.4<br/>
 
 <strong>Comandos Úteis Laravel</strong> <br/>
 
