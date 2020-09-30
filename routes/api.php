@@ -17,15 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-Route::resource('/terapeutas', 'Api\TerapeutasController');
-
-/*Route::group([
-    'namespace' => 'Api',
-], function () {
-    //API leitura de arquivos qware (STA)
-    Route::get('/ler/unidade', 'UnidadeController@ler');
-
+Route::namespace('Api')->prefix('terapeutas')->group(function(){
+    Route::resource('/', 'TerapeutasController');
+    Route::get('/{id}', 'TerapeutasController@show');
+    Route::put('/{id}', 'TerapeutasController@update');
+    Route::delete('/{id}', 'TerapeutasController@destroy');
 });
-*/
+
 
