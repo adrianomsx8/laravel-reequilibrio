@@ -10,7 +10,9 @@ Twitter Bootstrap 4.3.1 <br/>
 Vue Js 2.5.17<br/>
 ionicons 5.1.2<br/>
 PHPUnit 8.3.4<br/>
+Docker version 19.03.8<br/>
 
+<hr>
 <strong>Comandos Úteis Laravel</strong> <br/>
 
 php artisan key:generate (gerar a chave) <br>
@@ -25,17 +27,25 @@ php artisan storage:link (link simbólico para upload de arquivos)<br>
 php artisan tinker (recurso para exetar trecho de código pelo terminal)<br>
 php artisan migrate:status
 <br/><br/>
-
+<hr>
 <strong>Comandos Úteis Utilização do Vue js</strong> <br/>
 <strong>Compilar o vue Js:</strong> npm run watch <br/>
 npm i vuex <br/>
 <br>
+
+<hr>
+<strong>Comandos Úteis Utilização do Docker</strong> <br/>
+<strong>Gerar Build </strong> docker-compose up -d --build<br/>
+<strong>Entrar no container </strong> docker-compose exec web sh<br/>
+
+https://medium.com/@vhsilva.ap/configurando-laravel-6-nginx-e-postgresql-com-docker-9ad29c53d5
+
 <hr>
 Recursos <br/>
 <strong>Utilização da flash message:</strong> https://github.com/laracasts/flash <br/>
-https://adminlte.io/themes/AdminLTE/pages/widgets.html<br/>
-https://ionicons.com/ <br/>
-https://github.com/esjdev/laravel-6.x-ptBR-localization<br/>
-https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/vuejs.html#v-model
+<strong>Componente: </strong> https://adminlte.io/themes/AdminLTE/pages/widgets.html<br/>
+<strong>Icones: </strong> https://ionicons.com/ <br/>
+<strong>Tradução: </strong> https://github.com/esjdev/laravel-6.x-ptBR-localization<br/>
+<strong>Editor: </strong>  https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/frameworks/vuejs.html#v-model
 
 
