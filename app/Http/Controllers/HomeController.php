@@ -32,7 +32,9 @@ class HomeController extends Controller
         $total_terapeutas = Terapeuta::all()->count();
         $total_usuarios = User::all()->count();
         $total_terapias = Terapias::all()->count();
-        $terapeuta_id = $terapeuta->id;
+      
+        $terapeuta_id = !is_null($terapeuta) ?  $terapeuta->id : '';
+
         return view('home' , compact('terapeuta_id', 'total_terapeutas', 'total_usuarios', 'total_terapias'));
     }
 }
