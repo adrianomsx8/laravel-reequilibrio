@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Terapeuta;
-use App\User;
-use App\Terapias;
+use App\Models\Terapeuta;
+use App\Models\User;
+use App\Models\Terapias;
 
 class HomeController extends Controller
 {

@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new \App\User();
+        $user = new \App\Models\User();
         $user->create([
             'name' => 'Adriano Marques de Souza',
             'email' => 'adriano.msx823@gmail.com',

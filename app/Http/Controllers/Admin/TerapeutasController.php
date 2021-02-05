@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 
-use App\Terapeuta;
-use App\TerapeutaFoto;
+use App\Models\Terapeuta;
+use App\Models\TerapeutaFoto;
 
 class TerapeutasController extends Controller
 {

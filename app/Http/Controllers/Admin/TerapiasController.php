@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\TerapiasRequest;
-use App\Terapias;
-use App\Especialidades;
+use App\Models\Terapias;
+use App\Models\Especialidades;
 
 class TerapiasController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,7 +14,8 @@ class Terapeuta extends Model
      * @var array
      */
     protected $fillable = [
-        'nome', 'telefone', 'email', 'foto', 'especialidade', 'descricao', 'cidade', 'estado', 'endereco', 'formacao', 'user_id'
+        'nome', 'telefone', 'email', 'foto', 'especialidade', 'descricao', 'cidade', 
+        'estado', 'endereco', 'formacao', 'user_id', 'redes_sociais'
     ];
 
     public function especialidades()

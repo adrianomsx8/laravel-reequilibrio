@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TerapeutaRequest;
+use App\Models\Terapeuta;
 
 class TerapeutasController extends Controller
 {
@@ -12,7 +13,7 @@ class TerapeutasController extends Controller
 
     protected $terapeutas;
     
-   public function __construct(\App\Terapeuta $terapeutas)
+   public function __construct(Terapeuta $terapeutas)
    {
        $this->terapeutas = $terapeutas;
    }
@@ -37,6 +38,7 @@ class TerapeutasController extends Controller
 
     public function update(Request $request , $id)
     {
+       
         $terapeuta =  $this->terapeutas->findOrFail($id);
         $terapeuta->update($request->all());
         return response()->json($terapeuta);
